@@ -12,7 +12,7 @@ def test_health_check():
     assert response.json()["status"] == "healthy"
 
 @pytest.mark.asyncio
-@patch("app.services.ai_service.ai_service.get_election_guidance", new_callable=AsyncMock)
+@patch("backend.app.services.ai_service.ai_service.get_election_guidance", new_callable=AsyncMock)
 async def test_chat_success(mock_guidance):
     mock_guidance.return_value = "Mocked AI Response"
     response = client.post("/api/chat", json={"message": "How to register?", "lang": "en"})

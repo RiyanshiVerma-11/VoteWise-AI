@@ -95,6 +95,6 @@ def test_missing_language_param():
 
 def test_cors_headers_present():
     # Checking if CORS headers are injected
-    response = client.options("/api/steps?lang=en")
+    response = client.options("/api/steps?lang=en", headers={"Origin": "http://localhost", "Access-Control-Request-Method": "GET"})
     assert "access-control-allow-origin" in response.headers or response.status_code in [200, 204]
 

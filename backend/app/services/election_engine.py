@@ -55,13 +55,13 @@ class ElectionEngine:
             # Convert raw dicts to Pydantic models for type safety and validation
             for lang in raw_data:
                 data_cache[lang] = {
-                    "steps": [ElectionStep(**s).dict() for s in raw_data[lang].get("steps", [])],
+                    "steps": [ElectionStep(**s).model_dump() for s in raw_data[lang].get("steps", [])],
                     "quizzes": {
-                        step_id: [QuizQuestion(**q).dict() for q in questions]
+                        step_id: [QuizQuestion(**q).model_dump() for q in questions]
                         for step_id, questions in raw_data[lang].get("quizzes", {}).items()
                     },
-                    "checklist": [ChecklistItem(**c).dict() for c in raw_data[lang].get("checklist", [])],
-                    "timeline": [TimelineItem(**t).dict() for t in raw_data[lang].get("timeline", [])]
+                    "checklist": [ChecklistItem(**c).model_dump() for c in raw_data[lang].get("checklist", [])],
+                    "timeline": [TimelineItem(**t).model_dump() for t in raw_data[lang].get("timeline", [])]
                 }
             db_cache.set("election_data", data_cache)
         except Exception as e:

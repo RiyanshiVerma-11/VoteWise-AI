@@ -2,9 +2,9 @@ from pydantic import BaseModel, Field
 from typing import Optional, List
 
 class ChatRequest(BaseModel):
-    message: str = Field(..., example="How do I register to vote?")
-    step: Optional[str] = Field(None, example="registration")
-    lang: Optional[str] = Field("en", example="hi")
+    message: str = Field(..., json_schema_extra={'example': "How do I register to vote?"})
+    step: Optional[str] = Field(None, json_schema_extra={'example': "registration"})
+    lang: Optional[str] = Field("en", json_schema_extra={'example': "hi"})
     context: Optional[dict] = None
 
 class ChatResponse(BaseModel):
