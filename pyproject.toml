@@ -1,0 +1,5 @@
+# Pyrefly configuration — suppress false positive warnings for in-package relative imports
+[tool.pyrefly]
+python_version = "3.11"
+search_path = ["backend"]
+ignore_missing_imports = true

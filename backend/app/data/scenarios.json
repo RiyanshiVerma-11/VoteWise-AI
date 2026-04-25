@@ -2,29 +2,11 @@
     "registration": {
         "lost id": {
             "en": "### 🛡️ Scenario: Lost EPIC Card\nIf you have lost your Voter ID (EPIC card) in India:\n1. **Do not panic:** You can still vote if your name is in the electoral roll.\n2. **Apply for Duplicate:** Use **Form 8** on the Voters' Service Portal (voters.eci.gov.in).\n3. **Identify Alternatives:** On polling day, you can use **Aadhaar, PAN, or Passport** if your name is on the roll.",
-            "hi": "### 🛡️ परिदृश्य: खोया हुआ वोटर आईडी\nयदि आपने भारत में अपना वोटर आईडी (EPIC कार्ड) खो दिया है:\n1. **घबराएं नहीं:** यदि आपका नाम मतदाता सूची में है तो आप अभी भी मतदान कर सकते हैं।\n2. **डुप्लिकेट के लिए आवेदन करें:** मतदाता सेवा पोर्टल (voters.eci.gov.in) पर **फॉर्म 8** का उपयोग करें।\n3. **वैकल्पिक पहचान:** मतदान के दिन, यदि आपका नाम सूची में है, तो आप **आधार, पैन या पासपोर्ट** का उपयोग कर सकते हैं।"
-        },
-        "moved house": {
-            "en": "### 🏠 Scenario: Moved Residence\n1. **New Constituency:** If you moved to a new area, apply via **Form 6** for shifting.\n2. **Same Constituency:** If you just moved streets, use **Form 8** for address correction.",
-            "hi": "### 🏠 परिदृश्य: निवास स्थान बदलना\n1. **नया निर्वाचन क्षेत्र:** यदि आप नए क्षेत्र में चले गए हैं, तो स्थानांतरण के लिए **फॉर्म 6** के माध्यम से आवेदन करें।\n2. **समान निर्वाचन क्षेत्र:** यदि आपने अभी-अभी गली बदली है, तो पता सुधार के लिए **फॉर्म 8** का उपयोग करें।"
-        },
-        "correction": {
-            "en": "### ✏️ Scenario: Wrong Name/Date of Birth\n1. **Form 8:** Use Form 8 on the Voter Service Portal to correct any typographical errors in your EPIC card.\n2. **Proof Needed:** You will need to upload valid proof (Birth Certificate/Marksheet) for the correction.",
-            "hi": "### ✏️ परिदृश्य: गलत नाम/जन्म तिथि\n1. **फॉर्म 8:** अपने EPIC कार्ड में किसी भी टाइपोग्राफिकल त्रुटि को सुधारने के लिए मतदाता सेवा पोर्टल पर फॉर्म 8 का उपयोग करें।\n2. **प्रमाण की आवश्यकता:** आपको सुधार के लिए वैध प्रमाण (जन्म प्रमाण पत्र/मार्कशीट) अपलोड करना होगा।"
-        }
-    },
-    "voting": {
-        "booth unknown": {
-            "en": "### 📍 Scenario: Don't know my Booth\n1. **Voter Search:** Visit [voters.eci.gov.in](https://voters.eci.gov.in) and search by EPIC or name.\n2. **SMS:** Send your EPIC number to **1950**.\n3. **Voter Helpline App:** Download the official ECI app for instant info.",
-            "hi": "### 📍 परिदृश्य: अपना बूथ नहीं जानते\n1. **मतदाता खोज:** [voters.eci.gov.in](https://voters.eci.gov.in) पर जाएं और EPIC या नाम से खोजें।\n2. **SMS:** अपने EPIC नंबर को **1950** पर भेजें।\n3. **मतदाता हेल्पलाइन ऐप:** तत्काल जानकारी के लिए आधिकारिक ECI ऐप डाउनलोड करें।"
-        },
-        "not on roll": {
-            "en": "### ⚠️ Scenario: Name not in Voter List\nIf you have an ID but your name is missing:\n1. **Check Deletion:** Names are sometimes deleted during list revision if you moved or were absent.\n2. **Immediate Action:** You cannot vote if your name is not on the roll. Apply immediately via **Form 6** for the next election.",
-            "hi": "### ⚠️ परिदृश्य: मतदाता सूची में नाम नहीं है\nयदि आपके पास आईडी है लेकिन आपका नाम गायब है:\n1. **हटाने की जाँच करें:** यदि आप चले गए या अनुपस्थित थे तो सूची संशोधन के दौरान कभी-कभी नाम हटा दिए जाते हैं।\n2. **तत्काल कार्रवाई:** यदि आपका नाम सूची में नहीं है तो आप मतदान नहीं कर सकते। अगले चुनाव के लिए तुरंत **फॉर्म 6** के माध्यम से आवेदन करें।"
-        },
-        "someone else voted": {
-            "en": "### 🛑 Scenario: Someone else cast my vote\n1. **Tendered Vote:** If you find that someone has already voted in your name, you can still cast a **Tendered Vote**.\n2. **Process:** Alert the Presiding Officer. You will be given a ballot paper (not EVM) to cast your vote after identity verification.",
-            "hi": "### 🛑 परिदृश्य: किसी और ने मेरा वोट डाला\n1. **निविदा मत (Tendered Vote):** यदि आप पाते हैं कि किसी ने पहले ही आपके नाम पर वोट डाल दिया है, तो आप अभी भी **निविदा मत** डाल सकते हैं।\n2. **प्रक्रिया:** पीठासीन अधिकारी को सूचित करें। पहचान सत्यापन के बाद आपको अपना वोट डालने के लिए एक मतपत्र (EVM नहीं) दिया जाएगा।"
+            "hi": "### 🛡️ परिदृश्य: खोया हुआ वोटर आईडी\nयदि आपने भारत में अपना वोटर आईडी (EPIC कार्ड) खो दिया है:\n1. **घबराएं नहीं:** यदि आपका नाम मतदाता सूची में है तो आप अभी भी मतदान कर सकते हैं।\n2. **डुप्लिकेट के लिए आवेदन करें:** मतदाता सेवा पोर्टल (voters.eci.gov.in) पर **फॉर्म 8** का उपयोग करें।\n3. **वैकल्पिक पहचान:** मतदान के दिन, यदि आपका नाम सूची में है, तो आप **आधार, पैन या पासपोर्ट** का उपयोग कर सकते हैं।",
+            "mr": "### 🛡️ परिदृश्य: मतदार ओळखपत्र हरवले\n१. **घाबरू नका:** तुमचे नाव यादीत असल्यास तुम्ही मतदान करू शकता.\n२. **दुय्यम ओळखपत्रासाठी अर्ज करा:** फॉर्म ८ वापरा.\n३. **पर्यायी ओळखपत्रे:** आधार, पॅन किंवा पासपोर्ट वापरा.",
+            "ta": "### 🛡️ சூழ்நிலை: வாக்காளர் அடையாள அட்டை தொலைந்தது\n1. **பயப்பட வேண்டாம்:** வாக்காளர் பட்டியலில் பெயர் இருந்தால் நீங்கள் வாக்களிக்கலாம்.\n2. **நகல் எடுக்க விண்ணப்பிக்கவும்:** படிவம் 8 ஐப் பயன்படுத்தவும்.\n3. **மாற்று அடையாளங்கள்:** ஆதார், பான் அல்லது பாஸ்போர்ட்டைப் பயன்படுத்தலாம்.",
+            "bn": "### 🛡️ দৃশ্যপট: ভোটার আইডি কার্ড হারিয়ে গেছে\n১. **ভয় পাবেন না:** ভোটার তালিকায় নাম থাকলে আপনি ভোট দিতে পারবেন।\n২. **ডুপ্লিকেটের জন্য আবেদন করুন:** ফর্ম ৮ ব্যবহার করুন।\n৩. **বিকল্প পরিচয়:** আধার, প্যান বা পাসপোর্ট ব্যবহার করা যেতে পারে।",
+            "te": "### 🛡️ సినారియో: ఓటరు ఐడి పోయింది\n1. **భయపడకండి:** ఓటరు జాబితాలో మీ పేరు ఉంటే మీరు ఓటు వేయవచ్చు.\n2. **డూప్లికేట్ కోసం దరఖాస్తు చేయండి:** ఫారమ్ 8 ఉపయోగించండి.\n3. **ప్రత్యామ్నాయ గుర్తింపు:** ఆధార్, పాన్ లేదా పాస్‌పోర్ట్ ఉపయోగించవచ్చు."
         }
     }
 }

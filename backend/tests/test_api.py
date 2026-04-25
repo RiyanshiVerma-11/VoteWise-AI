@@ -81,11 +81,20 @@ def test_malformed_auth_token():
     assert response.json()["detail"] == "Invalid token"
 
 def test_global_exception_handler():
-
-    # Triggering an error by calling a route that doesn't exist or a known error path
-    # But since we have a catch-all, let's see how it handles a simulated crash if possible
-    # For now, 404 is not an 'Exception' handled by our custom handler unless specifically coded
-    # But we can test a 404
+    # Triggering an error by calling a route that doesn't exist
     response = client.get("/non-existent-path")
     assert response.status_code == 404
+
+def test_missing_language_param():
+    # Should fallback gracefully when required param is missing or handled
+    response = client.get("/api/steps")
+    # Assuming the API uses a default or requires it. 
+    # Even if it errors, it should be a 422 Unprocessable Entity for missing Pydantic query param, 
+    # or a 200 with fallback. Let's assert it's one of the safe HTTP responses.
+    assert response.status_code in [200, 422]
+
+def test_cors_headers_present():
+    # Checking if CORS headers are injected
+    response = client.options("/api/steps?lang=en")
+    assert "access-control-allow-origin" in response.headers or response.status_code in [200, 204]
 

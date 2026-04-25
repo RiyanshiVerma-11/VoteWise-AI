@@ -4,16 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VoteWise AI | Bharat Edition</title>
-    <link rel="stylesheet" href="/static/styles/votewise_v2.css?cache=123">
+    <link rel="stylesheet" href="/static/styles/votewise_v2.css?cache=124">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="manifest" href="/static/manifest.json">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        .lite-mode {
+            --primary-gradient: #4f46e5 !important;
+            --glass-bg: #ffffff !important;
+            --glass-blur: none !important;
+        }
+        .lite-mode * {
+            box-shadow: none !important;
+            transition: none !important;
+            text-shadow: none !important;
+            background-image: none !important;
+        }
+    </style>
 </head>
 <body>
 
     <!-- News Pulse Ticker -->
     <div class="live-ticker">
-        <div class="ticker-content">📢 DID YOU KNOW? Every vote counts toward democracy.</div>
+        <div id="topTicker" class="ticker-content">Loading civic pulse...</div>
     </div>
 
     <!-- Top Navigation -->
@@ -31,17 +45,29 @@
             <a class="nav-link" tabindex="0" data-module="mock-id" onclick="app.showModule('mock-id')"><i class="fas fa-id-card"></i> Mock ID</a>
         </div>
 
-        <div style="display: flex; align-items: center; gap: 1.5rem;">
-            <button id="langToggle" class="btn-primary" style="background: #f1f5f9; color: var(--text-header); padding: 0.5rem 1rem; font-size: 0.8rem; box-shadow: none;" onclick="app.toggleLanguage()" aria-label="Toggle Language">
-                <i class="fas fa-language"></i> English / Hindi
+        <div style="display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0;">
+            <button id="liteModeToggle" onclick="document.body.classList.toggle('lite-mode')" class="btn-primary" style="background: transparent; color: var(--text-body); box-shadow: none; padding: 0.4rem 0.6rem; font-size: 0.75rem;" aria-label="Toggle Low-Bandwidth Mode" title="Toggle Low-Bandwidth Mode">
+                <i class="fas fa-bolt"></i> Lite
             </button>
+
+            <div style="position: relative;">
+                <select id="langToggle" onchange="app.setLanguage(this.value)" aria-label="Select Language" style="appearance: none; -webkit-appearance: none; background: #f1f5f9; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.4rem 2rem 0.4rem 0.75rem; font-size: 0.8rem; font-weight: 700; color: var(--text-header); cursor: pointer; font-family: 'Outfit', sans-serif; outline: none;">
+                    <option value="en">🇬🇧 English</option>
+                    <option value="hi">🇮🇳 हिंदी</option>
+                    <option value="mr">🇮🇳 मराठी</option>
+                    <option value="ta">🇮🇳 தமிழ்</option>
+                    <option value="bn">🇮🇳 বাংলা</option>
+                    <option value="te">🇮🇳 తెలుగు</option>
+                </select>
+                <i class="fas fa-chevron-down" style="position: absolute; right: 0.6rem; top: 50%; transform: translateY(-50%); font-size: 0.65rem; color: var(--text-body); pointer-events: none;"></i>
+            </div>
             
-            <div class="profile-hub" style="display: flex; align-items: center; gap: 0.75rem; border-left: 1px solid #e2e8f0; padding-left: 1.5rem;">
+            <div class="profile-hub" style="display: flex; align-items: center; gap: 0.5rem; border-left: 1px solid #e2e8f0; padding-left: 0.75rem;">
                 <div style="text-align: right;">
-                    <div style="font-weight: 800; font-size: 0.9rem; color: var(--text-header);">Voter 3154</div>
-                    <div id="userPoints" style="font-size: 0.7rem; color: var(--primary); font-weight: 600;">120 Pts | 0% Mastery</div>
+                    <div style="font-weight: 800; font-size: 0.8rem; color: var(--text-header); white-space: nowrap;">Voter 3154</div>
+                    <div id="userPoints" style="font-size: 0.65rem; color: var(--primary); font-weight: 600; white-space: nowrap;">0 Pts | 0% Mastery</div>
                 </div>
-                <div style="width: 42px; height: 42px; background: var(--primary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 900; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);">
+                <div style="width: 36px; height: 36px; background: var(--primary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 900; font-size: 1rem; flex-shrink: 0;">
                     V
                 </div>
             </div>
@@ -59,7 +85,7 @@
     </main>
 
     <!-- Floating AI Trigger -->
-    <button class="ai-trigger" onclick="event.stopPropagation(); app.toggleChat();" style="position: fixed; bottom: 2rem; right: 2rem; width: 65px; height: 65px; border-radius: 50%; background: var(--primary-gradient); border: none; color: white; font-size: 1.5rem; cursor: pointer; box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4); z-index: 1000;">
+    <button class="ai-trigger" aria-label="Open AI Assistant" onclick="event.stopPropagation(); app.toggleChat();" style="position: fixed; bottom: 2rem; right: 2rem; width: 65px; height: 65px; border-radius: 50%; background: var(--primary-gradient); border: none; color: white; font-size: 1.5rem; cursor: pointer; box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4); z-index: 1000;">
         <i class="fas fa-robot"></i>
     </button>
 
@@ -74,20 +100,27 @@
                 </div>
             </div>
             <div style="display: flex; gap: 1rem; align-items: center;">
-                <i class="fas fa-times" style="cursor: pointer;" onclick="app.toggleChat()"></i>
+                <i class="fas fa-times" role="button" aria-label="Close AI Assistant" tabindex="0" style="cursor: pointer;" onclick="app.toggleChat()" onkeypress="if(event.key==='Enter') app.toggleChat()"></i>
             </div>
         </div>
         
         <div id="chatMessages" style="flex: 1; padding: 1.5rem; overflow-y: auto; display: flex; flex-direction: column;"></div>
 
         <div class="chat-input-area" style="padding: 1.25rem; border-top: 1px solid #f1f5f9; display: flex; gap: 0.75rem;">
-            <input type="text" id="userInput" placeholder="Ask anything about elections..." style="flex: 1; padding: 0.8rem 1.2rem; border-radius: 14px; border: 1px solid #e2e8f0; outline: none;" onkeypress="if(event.key === 'Enter') app.handleChatSubmit()">
-            <button class="btn-primary" onclick="app.handleChatSubmit()" style="padding: 0.8rem; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">
+            <input type="text" id="userInput" aria-label="Ask a question about elections" placeholder="Ask anything about elections..." style="flex: 1; padding: 0.8rem 1.2rem; border-radius: 14px; border: 1px solid #e2e8f0; outline: none;">
+            <button class="btn-primary" aria-label="Send message" onclick="app.handleChatSubmit()" style="padding: 0.8rem; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">
                 <i class="fas fa-paper-plane"></i>
             </button>
         </div>
     </div>
 
-    <script type="module" src="/static/js/votewise_core.js?v=5"></script>
+    <script type="module" src="/static/js/votewise_core.js?v=8"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/static/sw.js');
+            });
+        }
+    </script>
 </body>
 </html>

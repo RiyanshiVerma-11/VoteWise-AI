@@ -1,0 +1,110 @@
+{
+  "cannot vote without voter id": {
+    "verdict": "❌ **FAKE**",
+    "explanation": "**What the actual rule is:**\nYou CAN vote without your physical Voter ID card. ECI allows 12 alternative photo IDs. The only requirement is your name on the Electoral Roll.\n\n**12 Official ECI-Approved Alternative Documents:**\n1. Aadhaar Card\n2. MNREGA Job Card\n3. Bank/Post Office Passbook with photograph\n4. Health Insurance Smart Card (RSBY)\n5. Driving License\n6. PAN Card\n7. Smart Card issued by RGI under NPR\n8. Indian Passport\n9. Pension document with photograph\n10. Service Identity Cards (Central/State Govt/PSU)\n11. Official identity documents issued by MPs/MLAs/MLCs\n12. Unique Disability ID (UDID) Card\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "can't vote without voter id": {
+    "verdict": "❌ **FAKE**",
+    "explanation": "**What the actual rule is:**\nYou CAN vote without your physical Voter ID card. ECI allows 12 alternative photo IDs. The only requirement is your name on the Electoral Roll.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "two voter id": {
+    "verdict": "❌ **FAKE / ILLEGAL**",
+    "explanation": "**What the actual rule is:**\nHaving two Voter IDs is a **criminal offence** under the **Representation of the People Act, 1950**.\n\n- **Section 17**: No person shall be enrolled in the electoral roll of more than one constituency.\n- **Section 18**: No person shall be enrolled more than once in the electoral roll of any constituency.\n\nViolating these sections is punishable under **Section 31** with up to **1 year imprisonment** or a fine.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "vote twice": {
+    "verdict": "❌ **ILLEGAL — Criminal Offence**",
+    "explanation": "**What the actual rule is:**\nVoting more than once is a serious criminal offence under **Section 62(2) of the Representation of the People Act, 1951**. A person is entitled to vote **only once** in a constituency. Attempting to vote twice results in prosecution.\n\nAdditionally, **indelible ink** (containing Silver Nitrate) is applied to the left index finger after voting specifically to prevent double voting. It cannot be washed off for several days.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "double vote": {
+    "verdict": "❌ **ILLEGAL**",
+    "explanation": "**What the actual rule is:**\nVoting more than once in the same election is prohibited under **Section 62(2) of the Representation of the People Act, 1951**. It is a criminal offence punishable by imprisonment.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "two houses vote": {
+    "verdict": "❌ **FAKE / ILLEGAL**",
+    "explanation": "**What the actual rule is:**\nOwning property in multiple cities does **not** entitle you to multiple Voter IDs or votes. Under **Section 17 of the Representation of the People Act, 1950**, a person can be enrolled in **only one** constituency's electoral roll.\n\nRegistering in two places is a criminal offence under **Section 31** (up to 1 year in prison).\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "indelible ink": {
+    "verdict": "✅ **VERIFIED — Safe and Mandatory**",
+    "explanation": "**What the actual rule is:**\nThe indelible ink used during Indian elections contains **Silver Nitrate (AgNO₃)**, which reacts with the skin's natural salts to create a permanent mark that cannot be washed off for 72+ hours.\n\nIt is completely safe for skin and is used specifically to prevent double voting. The mark is applied to the left index finger before a voter casts their ballot.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "voting date has changed": {
+    "verdict": "⚠️ **MISLEADING — Likely FAKE**",
+    "explanation": "**What the actual rule is:**\nVoting dates can only be officially changed by the Election Commission of India via a **Press Release and Gazette Notification**. Never trust WhatsApp forwards or social media posts about date changes.\n\nAlways verify at: [voters.eci.gov.in](https://voters.eci.gov.in)\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "18 years": {
+    "verdict": "✅ **VERIFIED**",
+    "explanation": "**What the actual rule is:**\nYes, any Indian citizen aged **18 or above** as of the qualifying date (January 1st of the revision year) is eligible to register as a voter. This is guaranteed under **Article 326 of the Indian Constitution**.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "nri vote": {
+    "verdict": "✅ **VERIFIED**",
+    "explanation": "**What the actual rule is:**\nNon-Resident Indians (NRIs) who hold a valid Indian Passport can register as voters in their home constituency under **Section 20A of the Representation of the People Act, 1950**. They must vote **in person** at the polling booth — proxy or postal voting is not available for NRIs.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "booth capturing": {
+    "verdict": "❌ **ILLEGAL**",
+    "explanation": "**What the actual rule is:**\nBooth capturing is a **criminal offence under Section 135A of the Representation of the People Act, 1951**, punishable with imprisonment of **up to 2 years** (3 years for repeat offenders).\n\nReport immediately via ECI helpline: **1950**.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "can i vote online": {
+    "verdict": "❌ **FAKE**",
+    "explanation": "**What the actual rule is:**\nCurrently, there is **no online voting** facility for general citizens in India. You must physically visit your assigned polling booth to cast your vote on the Electronic Voting Machine (EVM).\n\nOnline registration is available, but voting is always in person (except for specific categories like service voters who use postal ballots).\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "free gifts for voting": {
+    "verdict": "❌ **ILLEGAL**",
+    "explanation": "**What the actual rule is:**\nOffering or accepting any gratification (money, gifts, liquor, etc.) to influence voting is a **corrupt practice** under **Section 123 of the Representation of the People Act, 1951** and a criminal offence under **Section 171B of the IPC**.\n\nBoth the giver and the receiver can be prosecuted.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "holiday on election day": {
+    "verdict": "✅ **VERIFIED**",
+    "explanation": "**What the actual rule is:**\nUnder **Section 135B of the Representation of the People Act, 1951**, every person employed in any business, trade, industrial undertaking or any other establishment is entitled to a **paid holiday** on the day of polling.\n\nNo deduction or abatement of the wages of any such person shall be made on account of a holiday having being granted.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "can i take mobile inside booth": {
+    "verdict": "❌ **PROHIBITED**",
+    "explanation": "**What the actual rule is:**\nMobile phones, cameras, or any other gadget that can record or transmit images are **strictly prohibited** inside the polling booth to maintain the secrecy of the ballot.\n\nViolation can lead to prosecution and cancellation of your vote.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "nota button twice": {
+    "verdict": "❌ **FAKE**",
+    "explanation": "**What the actual rule is:**\nPressing the NOTA (None Of The Above) button twice does **NOT** cancel the election. \n\n1. The EVM is designed to record only **one vote** per voter. \n2. Even if NOTA receives the maximum number of votes, the candidate with the next highest number of votes is declared the winner under current Indian law.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "if you press the nota button twice, the entire election in that area is cancelled": {
+    "verdict": "❌ **FAKE**",
+    "explanation": "**What the actual rule is:**\nPressing the NOTA (None Of The Above) button twice does **NOT** cancel the election. \n\n1. The EVM is designed to record only **one vote** per voter. \n2. Even if NOTA receives the maximum number of votes, the candidate with the next highest number of votes is declared the winner under current Indian law.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "government employees get 3 extra votes as a bonus for election duty": {
+    "verdict": "❌ **FAKE**",
+    "explanation": "**What the actual rule is:**\nGovernment employees on election duty do **NOT** get extra votes. Every citizen, regardless of their profession or duty, has exactly **ONE vote**.\n\nEmployees on duty cast their single vote via **Postal Ballot** or **Election Duty Certificate (EDC)**.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "foreigners living in india for more than 10 years can now vote in 2026": {
+    "verdict": "❌ **FAKE**",
+    "explanation": "**What the actual rule is:**\nUnder **Article 326** of the Constitution, only **Indian Citizens** are eligible to vote. \n\nForeign nationals, even if they have lived in India for many years (e.g., on a Long Term Visa), are **not eligible** to register as voters or cast a vote in Indian elections.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "the evm machine can be hacked using a bluetooth device or mobile phone": {
+    "verdict": "❌ **FAKE**",
+    "explanation": "**What the actual rule is:**\nECI EVMs are **standalone machines** with no wired or wireless connectivity. \n\n- They have **NO Bluetooth, WiFi, or Internet** capabilities.\n- They cannot be accessed by any external device.\n- The software is 'one-time programmable' and burned into the chip during manufacture.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "evm bluetooth": {
+    "verdict": "❌ **FAKE**",
+    "explanation": "**What the actual rule is:**\nECI EVMs are **standalone machines** with no wired or wireless connectivity. They have **NO Bluetooth, WiFi, or Internet** capabilities.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "extra votes for staff?": {
+    "verdict": "❌ **FAKE**",
+    "explanation": "**What the actual rule is:**\nGovernment employees or staff on election duty do **NOT** get extra votes. Every Indian citizen, regardless of their position or duty, is entitled to exactly **ONE vote**.\n\nStaff on election duty cast their single vote via **Postal Ballot** or **Election Duty Certificate (EDC)**. There is no provision for 'bonus' or 'extra' votes under the Representation of the People Act.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "foreigners can vote?": {
+    "verdict": "❌ **FAKE**",
+    "explanation": "**What the actual rule is:**\nOnly **Indian Citizens** are eligible to vote in Indian elections. Under **Section 16 of the Representation of the People Act, 1950**, a person shall be disqualified for registration in an electoral roll if they are not a citizen of India.\n\nEven if a foreigner has resided in India for a long time, they cannot vote unless they acquire Indian Citizenship and get enrolled in the electoral roll.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "evm bluetooth hack?": {
+    "verdict": "❌ **FAKE**",
+    "explanation": "**What the actual rule is:**\nIndian EVMs are **standalone** machines. They are **NOT** connected to any network (Internet, Bluetooth, or WiFi) and do not have any wireless communication hardware.\n\nThey operate on battery power and have no external communication ports. The software is 'One Time Programmable' (OTP), meaning it cannot be altered once burned into the microchip. Claims of hacking EVMs via Bluetooth are technically impossible and baseless.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "government employees extra votes": {
+    "verdict": "❌ **FAKE**",
+    "explanation": "**What the actual rule is:**\nGovernment employees or staff on election duty do **NOT** get extra votes. Every Indian citizen, regardless of their position or duty, is entitled to exactly **ONE vote**.\n\nStaff on election duty cast their single vote via **Postal Ballot** or **Election Duty Certificate (EDC)**.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "foreigners living in india can vote": {
+    "verdict": "❌ **FAKE**",
+    "explanation": "**What the actual rule is:**\nOnly **Indian Citizens** are eligible to vote in Indian elections. Foreign nationals, even if they have resided in India for many years, are **not eligible** to register as voters.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  },
+  "evm hacked using bluetooth": {
+    "verdict": "❌ **FAKE**",
+    "explanation": "**What the actual rule is:**\nIndian EVMs are **standalone** machines with no wireless communication hardware. They have **NO Bluetooth, WiFi, or Internet** capabilities.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "VoteWise AI | Bharat Edition",
+  "short_name": "VoteWise AI",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "/static/logo_votewise_ai.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/logo_votewise_ai.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

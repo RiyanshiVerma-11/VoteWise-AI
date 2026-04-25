@@ -27,48 +27,63 @@ class TimelineItem(BaseModel):
     description: str
     status: str
 
+from ..core.db import db_cache
+
 class ElectionEngine:
     def __init__(self):
-        self.data = {}
         self.load_data()
 
     def load_data(self):
-        """Loads election configuration from JSON file."""
+        """Loads election configuration into SQLite Cache."""
         try:
             base_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
             config_path = os.path.join(base_path, "data", "election_config.json")
+            scenarios_path = os.path.join(base_path, "data", "scenarios.json")
             
             with open(config_path, 'r', encoding='utf-8') as f:
                 raw_data = json.load(f)
-                
+            
+            # Load Scenarios
+            try:
+                with open(scenarios_path, 'r', encoding='utf-8') as sf:
+                    scenarios_data = json.load(sf)
+                    db_cache.set("scenarios", scenarios_data)
+            except Exception as e:
+                db_cache.set("scenarios", {})
+
+            data_cache = {}
             # Convert raw dicts to Pydantic models for type safety and validation
             for lang in raw_data:
-                self.data[lang] = {
-                    "steps": [ElectionStep(**s) for s in raw_data[lang].get("steps", [])],
+                data_cache[lang] = {
+                    "steps": [ElectionStep(**s).dict() for s in raw_data[lang].get("steps", [])],
                     "quizzes": {
-                        step_id: [QuizQuestion(**q) for q in questions]
+                        step_id: [QuizQuestion(**q).dict() for q in questions]
                         for step_id, questions in raw_data[lang].get("quizzes", {}).items()
                     },
-                    "checklist": [ChecklistItem(**c) for c in raw_data[lang].get("checklist", [])],
-                    "timeline": [TimelineItem(**t) for t in raw_data[lang].get("timeline", [])]
+                    "checklist": [ChecklistItem(**c).dict() for c in raw_data[lang].get("checklist", [])],
+                    "timeline": [TimelineItem(**t).dict() for t in raw_data[lang].get("timeline", [])]
                 }
+            db_cache.set("election_data", data_cache)
         except Exception as e:
             print(f"Error loading election config: {e}")
-            # Fallback to empty structure to prevent crashes
-            self.data = {"en": {"steps": [], "quizzes": {}, "checklist": [], "timeline": []}}
+            db_cache.set("election_data", {"en": {"steps": [], "quizzes": {}, "checklist": [], "timeline": []}})
 
     def get_steps(self, lang: str = "en") -> List[ElectionStep]:
-        return self.data.get(lang, self.data.get("en", {}))["steps"]
+        data = db_cache.get("election_data")
+        return [ElectionStep(**s) for s in data.get(lang, data.get("en", {}))["steps"]]
 
     def get_quiz(self, step_id: str, lang: str = "en") -> List[QuizQuestion]:
-        lang_data = self.data.get(lang, self.data.get("en", {}))
-        return lang_data["quizzes"].get(step_id, [])
+        data = db_cache.get("election_data")
+        lang_data = data.get(lang, data.get("en", {}))
+        return [QuizQuestion(**q) for q in lang_data["quizzes"].get(step_id, [])]
 
     def get_checklist(self, lang: str = "en") -> List[ChecklistItem]:
-        return self.data.get(lang, self.data.get("en", {})).get("checklist", [])
+        data = db_cache.get("election_data")
+        return [ChecklistItem(**c) for c in data.get(lang, data.get("en", {})).get("checklist", [])]
 
     def get_timeline(self, lang: str = "en") -> List[TimelineItem]:
-        return self.data.get(lang, self.data.get("en", {})).get("timeline", [])
+        data = db_cache.get("election_data")
+        return [TimelineItem(**t) for t in data.get(lang, data.get("en", {})).get("timeline", [])]
 
 election_engine = ElectionEngine()
 

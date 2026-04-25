@@ -26,36 +26,49 @@ body {
 
 /* --- Top Nav & Logo --- */
 .top-nav {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.97);
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(0,0,0,0.08);
-    padding: 0 6%;
-    height: 85px;
+    padding: 0 3%;
+    min-height: 72px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 1rem;
     position: sticky;
     top: 0;
     z-index: 1000;
+    flex-wrap: nowrap;
+    overflow-x: auto;
 }
 
 .nav-brand span {
     font-weight: 800;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     background: var(--primary-gradient);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    letter-spacing: -1.5px;
+    letter-spacing: -1px;
+    white-space: nowrap;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-shrink: 0;
 }
 
 .nav-link {
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 0.82rem;
     color: var(--text-body);
-    padding: 0.8rem 1.4rem;
-    border-radius: 14px;
+    padding: 0.5rem 0.85rem;
+    border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
+    white-space: nowrap;
 }
 
 .nav-link.active {
@@ -191,3 +204,40 @@ body {
     box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.1);
 }
 
+.scenario-chip {
+    background: white;
+    border: 1px solid #d1d5db;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--text-body);
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.scenario-chip:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: #eff6ff;
+    transform: translateY(-1px);
+}
+
+.scenario-chip {
+    background: white;
+    border: 1px solid #d1d5db;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    color: var(--text-body);
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.scenario-chip:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: #eff6ff;
+    transform: translateY(-1px);
+}

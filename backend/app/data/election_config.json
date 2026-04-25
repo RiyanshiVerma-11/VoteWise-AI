@@ -19,6 +19,10 @@
             "voting": [
                 {"id": 1, "question": "Where is the indelible ink applied at the polling station?", "options": ["Right thumb", "Left index finger", "Left middle finger", "Right index finger"], "correct_answer": 1, "explanation": "Indelible ink is applied to the left index finger as a mark of having voted."},
                 {"id": 2, "question": "What does VVPAT stand for?", "options": ["Voter Verified Paper Audit Trail", "Voter Value Paper Audit Trial", "Voter Verification Port and Trail", "Visual Voter Paper Audit Tracking"], "correct_answer": 0, "explanation": "VVPAT allows voters to verify that their vote was cast correctly via a physical slip."}
+            ],
+            "results": [
+                {"id": 1, "question": "Where are EVMs stored after polling and before counting?", "options": ["Police Station", "District Office", "Strong Room", "Election Office"], "correct_answer": 2, "explanation": "EVMs are kept in 'Strong Rooms' with 24/7 multi-tier security until the day of counting."},
+                {"id": 2, "question": "Who supervises the counting process at the counting center?", "options": ["BLO", "Returning Officer", "Candidate", "Polling Officer"], "correct_answer": 1, "explanation": "The Returning Officer (RO) is responsible for supervising the counting and declaring results."}
             ]
         },
         "checklist": [
@@ -44,8 +48,19 @@
         ],
         "quizzes": {
             "registration": [
-                {"id": 1, "question": "भारत में मतदान के लिए पंजीकरण करने की न्यूनतम आयु क्या है?", "options": ["16", "18", "21", "25"], "correct_answer": 1, "explanation": "भारतीय संविधान के अनुसार मानक मतदान आयु 18 वर्ष है।"},
-                {"id": 2, "question": "भारत में नए मतदाता पंजीकरण के लिए किस फॉर्म का उपयोग किया जाता है?", "options": ["फॉर्म 7", "फॉर्म 8", "फॉर्म 6", "फॉर्म 12"], "correct_answer": 2, "explanation": "फॉर्म 6 नए मतदाता पंजीकरण के लिए मानक आवेदन है।"}
+                {"id": 1, "question": "भारत में मतदान के लिए पंजीकरण करने की न्यूनतम आयु क्या है?", "options": ["16", "18", "21", "25"], "correct_answer": 1, "explanation": "भारतीय संविधान के अनुसार मानक मतदान आयु 18 वर्ष है।"}
+            ],
+            "verification": [
+                {"id": 1, "question": "बूथ स्तर के अधिकारी (BLO) की क्या भूमिका है?", "options": ["वोटों की गिनती करना", "घर-घर जाकर मतदाता विवरण सत्यापित करना", "परिणाम घोषित करना", "सुरक्षा प्रबंध करना"], "correct_answer": 1, "explanation": "BLO मतदाता सूची में सटीकता सुनिश्चित करने के लिए मतदाता विवरणों के क्षेत्रीय सत्यापन के लिए जिम्मेदार होते हैं।"},
+                {"id": 2, "question": "यदि आपका नाम मतदाता सूची में है, तो क्या आपके पास भौतिक मतदाता पहचान पत्र होना अनिवार्य है?", "options": ["हाँ, हमेशा", "नहीं, अन्य वैध आईडी भी स्वीकार किए जाते हैं", "केवल पहली बार के मतदाताओं के लिए", "केवल ग्रामीण क्षेत्रों में"], "correct_answer": 1, "explanation": "यदि आपका नाम मतदाता सूची में है, तो आप आधार, पासपोर्ट या ड्राइविंग लाइसेंस जैसे अन्य सरकारी आईडी का उपयोग कर सकते हैं।"}
+            ],
+            "voting": [
+                {"id": 1, "question": "मतदान केंद्र पर अमिट स्याही कहाँ लगाई जाती है?", "options": ["दाएं हाथ का अंगूठा", "बाएं हाथ की तर्जनी", "बाएं हाथ की मध्यमा", "दाएं हाथ की तर्जनी"], "correct_answer": 1, "explanation": "वोट डालने के प्रतीक के रूप में बाएं हाथ की तर्जनी (index finger) पर अमिट स्याही लगाई जाती है।"},
+                {"id": 2, "question": "VVPAT का पूरा नाम क्या है?", "options": ["Voter Verified Paper Audit Trail", "Voter Value Paper Audit Trial", "Voter Verification Port and Trail", "Visual Voter Paper Audit Tracking"], "correct_answer": 0, "explanation": "VVPAT मतदाताओं को यह सत्यापित करने की अनुमति देता है कि उनका वोट भौतिक पर्ची के माध्यम से सही ढंग से डाला गया है।"}
+            ],
+            "results": [
+                {"id": 1, "question": "मतदान के बाद और मतगणना से पहले EVM कहाँ रखे जाते हैं?", "options": ["पुलिस स्टेशन", "जिला कार्यालय", "स्ट्रांग रूम", "चुनाव कार्यालय"], "correct_answer": 2, "explanation": "EVM को मतगणना के दिन तक 24/7 सुरक्षा के साथ 'स्ट्रांग रूम' में रखा जाता है।"},
+                {"id": 2, "question": "मतगणना केंद्र पर मतगणना प्रक्रिया की निगरानी कौन करता है?", "options": ["BLO", "रिटर्निंग ऑफिसर (RO)", "उम्मीदवार", "मतदान अधिकारी"], "correct_answer": 1, "explanation": "रिटर्निंग ऑफिसर (RO) मतगणना की निगरानी और परिणाम घोषित करने के लिए जिम्मेदार होता है।"}
             ]
         },
         "checklist": [
@@ -60,6 +75,84 @@
             {"phase": "चरण 2", "title": "नामांकन दाखिल करना", "description": "उम्मीदवार अपने कागजात दाखिल करते हैं, जिनकी जांच निर्वाचन अधिकारी द्वारा की जाती है।", "status": "प्रगति में"},
             {"phase": "चरण 3", "title": "मतदान दिवस", "description": "पंजीकृत मतदाता EVM का उपयोग करके अपना वोट डालने के लिए बूथों पर जाते हैं।", "status": "आगामी"},
             {"phase": "चरण 4", "title": "मतगणना और परिणाम", "description": "सुरक्षित केंद्रों में EVM खोले जाते हैं, वोटों की गिनती की जाती है और विजेताओं की घोषणा की जाती है।", "status": "आगामी"}
+        ]
+    },
+    "mr": {
+        "steps": [
+            {"id": "registration", "title": "मतदार नोंदणी", "description": "मतदार यादीत सामील व्हा आणि तुमचे ओळखपत्र मिळवा.", "icon": "📝"},
+            {"id": "verification", "title": "ओळख पडताळणी", "description": "प्रमाणीकरणाद्वारे तुमचे मत सुरक्षित करा.", "icon": "🛡️"},
+            {"id": "voting", "title": "मतदान दिवस मार्गदर्शक", "description": "आत्मविश्वासाने मतदान केंद्रावर जा.", "icon": "🗳️"},
+            {"id": "results", "title": "मतमोजणी आणि निकाल", "description": "प्रत्येक मताची मोजणी कशी केली जाते ते समजावून घ्या.", "icon": "📊"}
+        ],
+        "quizzes": {
+            "registration": [
+                {"id": 1, "question": "भारतात मतदानासाठी नोंदणी करण्यासाठी किमान वय किती आहे?", "options": ["16", "18", "21", "25"], "correct_answer": 1, "explanation": "भारतीय संविधानानुसार मतदानासाठी किमान वय १८ वर्षे आहे."}
+            ]
+        },
+        "checklist": [
+            {"title": "पासपोर्ट आकाराचा फोटो", "description": "पांढऱ्या पार्श्वभूमीसह दोन अलीकडील रंगीत फोटो.", "icon": "fa-image"},
+            {"title": "वयाचा पुरावा", "description": "जन्म दाखला किंवा १०वीची गुणपत्रिका.", "icon": "fa-calendar-check"},
+            {"title": "पत्त्याचा पुरावा", "description": "वीज/पाणी बिल किंवा बँक पासबुक.", "icon": "fa-home"}
+        ],
+        "timeline": [
+            {"phase": "टप्पा १", "title": "मतदार यादी दुरुस्ती", "description": "ECI मतदार यादी अद्ययावत करते.", "status": "पूर्ण"}
+        ]
+    },
+    "ta": {
+        "steps": [
+            {"id": "registration", "title": "வாக்காளர் பதிவு", "description": "வாக்காளர் பட்டியலில் இணைந்து உங்கள் அடையாள அட்டையைப் பெறுங்கள்.", "icon": "📝"},
+            {"id": "verification", "title": "அடையாளச் சரிபார்ப்பு", "description": "அங்கீகாரத்தின் மூலம் உங்கள் வாக்கை உறுதிப்படுத்தவும்.", "icon": "🛡️"},
+            {"id": "voting", "title": "தேர்தல் நாள் வழிகாட்டி", "description": "நம்பிக்கையுடன் வாக்குச் சாவடிக்குச் செல்லுங்கள்.", "icon": "🗳️"},
+            {"id": "results", "title": "வாக்கு எண்ணிக்கை மற்றும் முடிவுகள்", "description": "ஒவ்வொரு வாக்கும் எவ்வாறு கணக்கிடப்படுகிறது என்பதைப் புரிந்து கொள்ளுங்கள்.", "icon": "📊"}
+        ],
+        "quizzes": {
+            "registration": [
+                {"id": 1, "question": "இந்தியாவில் வாக்களிக்க பதிவு செய்ய குறைந்தபட்ச வயது என்ன?", "options": ["16", "18", "21", "25"], "correct_answer": 1, "explanation": "இந்திய அரசியலமைப்பின் படி வாக்களிக்கும் வயது 18 ஆகும்."}
+            ]
+        },
+        "checklist": [
+            {"title": "பாஸ்போர்ட் அளவு புகைப்படம்", "description": "வெள்ளை பின்னணியுடன் கூடிய இரண்டு புகைப்படங்கள்.", "icon": "fa-image"}
+        ],
+        "timeline": [
+            {"phase": "கட்டம் 1", "title": "வாக்காளர் பட்டியல் திருத்தம்", "description": "வாக்காளர் பட்டியலை தேர்தல் ஆணையம் புதுப்பிக்கிறது.", "status": "முடிந்தது"}
+        ]
+    },
+    "bn": {
+        "steps": [
+            {"id": "registration", "title": "ভোটার নিবন্ধন", "description": "ভোটার তালিকায় নাম তুলুন এবং আপনার আইডি কার্ড পান।", "icon": "📝"},
+            {"id": "verification", "title": "পরিচয় যাচাইকরণ", "description": "যাচাইকরণের মাধ্যমে আপনার ভোট সুরক্ষিত করুন।", "icon": "🛡️"},
+            {"id": "voting", "title": "ভোটের দিনের নির্দেশিকা", "description": "আত্মবিশ্বাসের সাথে ভোটকেন্দ্রে যান।", "icon": "🗳️"},
+            {"id": "results", "title": "ভোট গণনা ও ফলাফল", "description": "প্রতিটি ভোট কীভাবে গণনা করা হয় তা বুঝুন।", "icon": "📊"}
+        ],
+        "quizzes": {
+            "registration": [
+                {"id": 1, "question": "ভারতে ভোটার নিবন্ধনের জন্য সর্বনিম্ন বয়স কত?", "options": ["১৬", "১৮", "২১", "২৫"], "correct_answer": 1, "explanation": "ভারতীয় সংবিধান অনুযায়ী ভোটার হওয়ার বয়স ১৮ বছর।"}
+            ]
+        },
+        "checklist": [
+            {"title": "পাসপোর্ট সাইজ ছবি", "description": "সাদা ব্যাকগ্রাউন্ড সহ দুটি সাম্প্রতিক রঙিন ছবি।", "icon": "fa-image"}
+        ],
+        "timeline": [
+            {"phase": "পর্যায় ১", "title": "ভোটার তালিকা সংশোধন", "description": "নির্বাচন কমিশন ভোটার তালিকা আপডেট করে।", "status": "সম্পন্ন"}
+        ]
+    },
+    "te": {
+        "steps": [
+            {"id": "registration", "title": "ఓటరు నమోదు", "description": "ఓటరు జాబితాలో చేరండి మరియు మీ ఐడి కార్డు పొందండి.", "icon": "📝"},
+            {"id": "verification", "title": "గుర్తింపు ధృవీకరణ", "description": "అథెంటికేషన్ ద్వారా మీ ఓటును సురక్షితం చేసుకోండి.", "icon": "🛡️"},
+            {"id": "voting", "title": "పోలింగ్ రోజు గైడ్", "description": "ఆత్మవిశ్వాసంతో పోలింగ్ కేంద్రానికి వెళ్లండి.", "icon": "🗳️"},
+            {"id": "results", "title": "ఓట్ల లెక్కింపు & ఫలితాలు", "description": "ప్రతి ఓటు ఎలా లెక్కించబడుతుందో అర్థం చేసుకోండి.", "icon": "📊"}
+        ],
+        "quizzes": {
+            "registration": [
+                {"id": 1, "question": "భారతదేశంలో ఓటు వేయడానికి నమోదు చేసుకోవడానికి కనీస వయస్సు ఎంత?", "options": ["16", "18", "21", "25"], "correct_answer": 1, "explanation": "భారత రాజ్యాంగం ప్రకారం ఓటు వేయడానికి కనీస వయస్సు 18 ఏళ్లు."}
+            ]
+        },
+        "checklist": [
+            {"title": "పాస్‌పోర్ట్ సైజ్ ఫోటోగ్రాఫ్", "description": "వైట్ బ్యాక్‌గ్రౌండ్‌తో కూడిన రెండు రంగుల ఫోటోలు.", "icon": "fa-image"}
+        ],
+        "timeline": [
+            {"phase": "దశ 1", "title": "ఓటరు జాబితా సవరణ", "description": "ECI ఓటరు జాబితాను అప్‌డేట్ చేస్తుంది.", "status": "పూర్తయింది"}
         ]
     }
 }
