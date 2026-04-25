@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoteWise AI | Bharat Edition</title>
+    <link rel="stylesheet" href="/static/styles/votewise_v2.css?cache=123">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+
+    <!-- News Pulse Ticker -->
+    <div class="live-ticker">
+        <div class="ticker-content">📢 DID YOU KNOW? Every vote counts toward democracy.</div>
+    </div>
+
+    <!-- Top Navigation -->
+    <nav class="top-nav" role="navigation">
+        <div class="nav-brand" onclick="app.showModule('dashboard')" style="display: flex; align-items: center; gap: 1rem; cursor: pointer;" role="link" tabindex="0" aria-label="VoteWise AI Home">
+            <img src="/static/logo_votewise_ai.png" alt="VoteWise AI Logo" style="height: 45px; width: auto; object-fit: contain; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));">
+            <span style="font-weight: 800; font-size: 1.6rem; background: var(--primary-gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: -1.5px;">VoteWise AI</span>
+        </div>
+
+        <div class="nav-links">
+            <a class="nav-link active" tabindex="0" data-module="dashboard" onclick="app.showModule('dashboard')"><i class="fas fa-th-large"></i> Dashboard</a>
+            <a class="nav-link" tabindex="0" data-module="checklist" onclick="app.showModule('checklist')"><i class="fas fa-clipboard-check"></i> Checklist</a>
+            <a class="nav-link" tabindex="0" data-module="timeline" onclick="app.showModule('timeline')"><i class="fas fa-history"></i> Timeline</a>
+            <a class="nav-link" tabindex="0" data-module="glossary" onclick="app.showModule('glossary')"><i class="fas fa-book"></i> Glossary</a>
+            <a class="nav-link" tabindex="0" data-module="mock-id" onclick="app.showModule('mock-id')"><i class="fas fa-id-card"></i> Mock ID</a>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1.5rem;">
+            <button id="langToggle" class="btn-primary" style="background: #f1f5f9; color: var(--text-header); padding: 0.5rem 1rem; font-size: 0.8rem; box-shadow: none;" onclick="app.toggleLanguage()" aria-label="Toggle Language">
+                <i class="fas fa-language"></i> English / Hindi
+            </button>
+            
+            <div class="profile-hub" style="display: flex; align-items: center; gap: 0.75rem; border-left: 1px solid #e2e8f0; padding-left: 1.5rem;">
+                <div style="text-align: right;">
+                    <div style="font-weight: 800; font-size: 0.9rem; color: var(--text-header);">Voter 3154</div>
+                    <div id="userPoints" style="font-size: 0.7rem; color: var(--primary); font-weight: 600;">120 Pts | 0% Mastery</div>
+                </div>
+                <div style="width: 42px; height: 42px; background: var(--primary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 900; font-size: 1.2rem; box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);">
+                    V
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container" style="padding: 4rem 6%;">
+        <header style="margin-bottom: 4rem; text-align: center;">
+            <h1 id="pageTitle" class="fade-in" style="font-size: 3rem; font-weight: 800; margin-bottom: 0.5rem;">Election Roadmap</h1>
+            <p id="pageSubtitle" class="fade-in" style="font-size: 1.1rem; opacity: 0.8;">Your definitive path to democratic participation</p>
+        </header>
+
+        <div id="stepsGrid" class="roadmap-grid"></div>
+        <div id="moduleContent" class="module-area"></div>
+    </main>
+
+    <!-- Floating AI Trigger -->
+    <button class="ai-trigger" onclick="event.stopPropagation(); app.toggleChat();" style="position: fixed; bottom: 2rem; right: 2rem; width: 65px; height: 65px; border-radius: 50%; background: var(--primary-gradient); border: none; color: white; font-size: 1.5rem; cursor: pointer; box-shadow: 0 10px 25px rgba(79, 70, 229, 0.4); z-index: 1000;">
+        <i class="fas fa-robot"></i>
+    </button>
+
+    <!-- Floating AI Panel -->
+    <div id="chatPanel" class="ai-panel">
+        <div class="ai-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+                <div style="width: 10px; height: 10px; background: #10b981; border-radius: 50%; box-shadow: 0 0 10px #10b981;"></div>
+                <div>
+                    <div style="font-weight: 800; font-size: 0.9rem;">VoteWise Guide</div>
+                    <div style="font-size: 0.65rem; opacity: 0.8;">Online | Level 6 AI Brain</div>
+                </div>
+            </div>
+            <div style="display: flex; gap: 1rem; align-items: center;">
+                <i class="fas fa-times" style="cursor: pointer;" onclick="app.toggleChat()"></i>
+            </div>
+        </div>
+        
+        <div id="chatMessages" style="flex: 1; padding: 1.5rem; overflow-y: auto; display: flex; flex-direction: column;"></div>
+
+        <div class="chat-input-area" style="padding: 1.25rem; border-top: 1px solid #f1f5f9; display: flex; gap: 0.75rem;">
+            <input type="text" id="userInput" placeholder="Ask anything about elections..." style="flex: 1; padding: 0.8rem 1.2rem; border-radius: 14px; border: 1px solid #e2e8f0; outline: none;" onkeypress="if(event.key === 'Enter') app.handleChatSubmit()">
+            <button class="btn-primary" onclick="app.handleChatSubmit()" style="padding: 0.8rem; width: 45px; height: 45px; display: flex; align-items: center; justify-content: center; border-radius: 12px;">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <script type="module" src="/static/js/votewise_core.js?v=5"></script>
+</body>
+</html>

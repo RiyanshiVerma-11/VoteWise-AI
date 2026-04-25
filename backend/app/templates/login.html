@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | VoteWise AI</title>
+    <link rel="stylesheet" href="/static/styles/premium.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body class="login-bg">
+    <div class="login-card fade-in">
+        <img src="/static/logo_votewise_ai.png" alt="VoteWise AI" style="width: 100px; height: 100px; object-fit: contain; margin-bottom: 1.5rem;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--primary);">VoteWise AI</h1>
+        <p style="color: var(--text-muted); font-size: 1rem; margin-bottom: 2rem;">
+            Your interactive journey to civic participation starts here.
+        </p>
+
+        <!-- Phone Login Section -->
+        <div id="phoneLoginSection" style="width: 100%; margin-bottom: 2rem; text-align: left;">
+            <label style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted); margin-bottom: 0.5rem; display: block;">LOGIN WITH PHONE</label>
+            <div style="display: flex; gap: 0.5rem;">
+                <input type="tel" id="phoneNumber" placeholder="+91 98765 43210" style="flex: 1; padding: 0.75rem 1rem; border-radius: 12px; border: 1px solid #e2e8f0; outline: none;">
+                <button class="btn-primary" onclick="handlePhoneLogin()" style="padding: 0.75rem 1rem;">
+                    Get OTP
+                </button>
+            </div>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; color: var(--text-muted); font-size: 0.8rem;">
+            <hr style="flex: 1; border: none; border-top: 1px solid #e2e8f0;"> OR <hr style="flex: 1; border: none; border-top: 1px solid #e2e8f0;">
+        </div>
+        
+        <div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem;">
+            <div id="googleBtn"></div>
+            <p style="font-size: 0.85rem; color: var(--text-muted);">
+                Sign in securely to access your education roadmap.
+            </p>
+        </div>
+
+        <!-- Verification Modal Simulation -->
+        <div id="otpModal" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; align-items: center; justify-content: center;">
+            <div style="background: white; padding: 2.5rem; border-radius: 24px; width: 90%; max-width: 400px; text-align: center;">
+                <h3>Verify Phone</h3>
+                <p style="font-size: 0.9rem; color: var(--text-muted); margin: 1rem 0;">Enter the 4-digit code sent to your mobile.</p>
+                <input type="text" id="otpCode" placeholder="0 0 0 0" style="font-size: 1.5rem; letter-spacing: 0.5rem; text-align: center; width: 100%; padding: 1rem; border-radius: 12px; border: 2px solid var(--primary-light); margin-bottom: 1.5rem; outline: none;">
+                <button class="btn-primary" style="width: 100%;" onclick="verifyOTP()">Verify & Continue</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleCredentialResponse(response) {
+            fetch('/api/auth/verify', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ token: response.credential })
+            })
+            .then(res => res.json())
+            .then(user => {
+                sessionStorage.setItem('user', JSON.stringify(user));
+                window.location.href = '/index.html';
+            })
+            .catch(err => alert("Google Login failed."));
+        }
+
+        function handlePhoneLogin() {
+            const phone = document.getElementById('phoneNumber').value;
+            if (!phone) return alert("Please enter a phone number");
+            document.getElementById('otpModal').style.display = 'flex';
+        }
+
+        function verifyOTP() {
+            const otp = document.getElementById('otpCode').value;
+            if (otp.length === 4) {
+                const user = { name: 'Voter ' + document.getElementById('phoneNumber').value.slice(-4), isPhone: true };
+                sessionStorage.setItem('user', JSON.stringify(user));
+                window.location.href = '/index.html';
+            } else {
+                alert("Please enter a valid 4-digit OTP");
+            }
+        }
+
+        window.onload = function () {
+            fetch('/api/config')
+                .then(res => res.json())
+                .then(data => {
+                    google.accounts.id.initialize({
+                        client_id: data.google_client_id,
+                        callback: handleCredentialResponse
+                    });
+                    google.accounts.id.renderButton(
+                        document.getElementById("googleBtn"),
+                        { theme: "outline", size: "large", shape: "pill", width: 320, text: "continue_with" }
+                    );
+                });
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+{
+    "en": {
+        "steps": [
+            {"id": "registration", "title": "Voter Registration", "description": "Join the electoral roll and get your ID card.", "icon": "📝"},
+            {"id": "verification", "title": "Identity Verification", "description": "Secure your vote through authentication.", "icon": "🛡️"},
+            {"id": "voting", "title": "Polling Day Guide", "description": "Navigate the voting booth with confidence.", "icon": "🗳️"},
+            {"id": "results", "title": "Counting & Results", "description": "Understand how every single vote is tallied.", "icon": "📊"}
+        ],
+        "quizzes": {
+            "registration": [
+                {"id": 1, "question": "What is the minimum age to register for voting in India?", "options": ["16", "18", "21", "25"], "correct_answer": 1, "explanation": "The standard voting age is 18 years as per the Indian Constitution."},
+                {"id": 2, "question": "Which form is used for new voter registration in India?", "options": ["Form 7", "Form 8", "Form 6", "Form 12"], "correct_answer": 2, "explanation": "Form 6 is the standard application for new voter registration."},
+                {"id": 3, "question": "Can a non-resident citizen (NRI) register to vote?", "options": ["No", "Yes, in person only", "Yes, as an Overseas Elector", "Only if they have a local bank account"], "correct_answer": 2, "explanation": "NRIs can register as Overseas Electors in the constituency mentioned in their passport."}
+            ],
+            "verification": [
+                {"id": 1, "question": "What is the role of a Booth Level Officer (BLO)?", "options": ["To count votes", "To verify voter details at the doorstep", "To announce results", "To manage security"], "correct_answer": 1, "explanation": "BLOs are responsible for field verification of voter details to ensure accuracy in the rolls."},
+                {"id": 2, "question": "Is a physical Voter ID mandatory if your name is on the electoral roll?", "options": ["Yes, always", "No, other valid IDs are accepted", "Only for first-time voters", "Only in rural areas"], "correct_answer": 1, "explanation": "If your name is on the roll, you can use other government-approved IDs like Aadhaar, Passport, or DL."}
+            ],
+            "voting": [
+                {"id": 1, "question": "Where is the indelible ink applied at the polling station?", "options": ["Right thumb", "Left index finger", "Left middle finger", "Right index finger"], "correct_answer": 1, "explanation": "Indelible ink is applied to the left index finger as a mark of having voted."},
+                {"id": 2, "question": "What does VVPAT stand for?", "options": ["Voter Verified Paper Audit Trail", "Voter Value Paper Audit Trial", "Voter Verification Port and Trail", "Visual Voter Paper Audit Tracking"], "correct_answer": 0, "explanation": "VVPAT allows voters to verify that their vote was cast correctly via a physical slip."}
+            ]
+        },
+        "checklist": [
+            {"title": "Passport Size Photograph", "description": "Two recent color photographs with a white background for your EPIC card.", "icon": "fa-image"},
+            {"title": "Proof of Age", "description": "Birth Certificate, 10th Marksheet, or Passport to verify you are 18+.", "icon": "fa-calendar-check"},
+            {"title": "Proof of Address", "description": "Utility Bill (Electricity/Water), Bank Passbook, or Rent Agreement.", "icon": "fa-home"},
+            {"title": "Identity Proof", "description": "Aadhaar Card, PAN Card, or Passport for official verification.", "icon": "fa-id-card"},
+            {"title": "Signed Declaration Form", "description": "Form 6 declaration confirming you are a citizen and not registered elsewhere.", "icon": "fa-file-signature"}
+        ],
+        "timeline": [
+            {"phase": "Phase 1", "title": "Voter List Revision", "description": "The ECI updates the electoral roll, adding new voters and removing duplicates or deceased entries.", "status": "Completed"},
+            {"phase": "Phase 2", "title": "Nomination Filing", "description": "Candidates file their papers, which are then scrutinized by the Returning Officer.", "status": "In Progress"},
+            {"phase": "Phase 3", "title": "Polling Day", "description": "Registered voters visit their designated booths to cast their votes using EVMs.", "status": "Upcoming"},
+            {"phase": "Phase 4", "title": "Counting & Results", "description": "EVMs are unsealed in secure centers, votes are tallied, and winners are declared.", "status": "Upcoming"}
+        ]
+    },
+    "hi": {
+        "steps": [
+            {"id": "registration", "title": "मतदाता पंजीकरण", "description": "चुनावी रोल में शामिल हों और अपना आईडी प्राप्त करें।", "icon": "📝"},
+            {"id": "verification", "title": "पहचान सत्यापन", "description": "प्रमाणीकरण के माध्यम से अपना वोट सुरक्षित करें।", "icon": "🛡️"},
+            {"id": "voting", "title": "मतदान दिवस गाइड", "description": "आत्मविश्वास के साथ वोटिंग बूथ पर जाएं।", "icon": "🗳️"},
+            {"id": "results", "title": "मतगणना और परिणाम", "description": "समझें कि हर एक वोट की गिनती कैसे की जाती है।", "icon": "📊"}
+        ],
+        "quizzes": {
+            "registration": [
+                {"id": 1, "question": "भारत में मतदान के लिए पंजीकरण करने की न्यूनतम आयु क्या है?", "options": ["16", "18", "21", "25"], "correct_answer": 1, "explanation": "भारतीय संविधान के अनुसार मानक मतदान आयु 18 वर्ष है।"},
+                {"id": 2, "question": "भारत में नए मतदाता पंजीकरण के लिए किस फॉर्म का उपयोग किया जाता है?", "options": ["फॉर्म 7", "फॉर्म 8", "फॉर्म 6", "फॉर्म 12"], "correct_answer": 2, "explanation": "फॉर्म 6 नए मतदाता पंजीकरण के लिए मानक आवेदन है।"}
+            ]
+        },
+        "checklist": [
+            {"title": "पासपोर्ट साइज फोटो", "description": "आपके EPIC कार्ड के लिए सफेद बैकग्राउंड वाली दो हालिया रंगीन तस्वीरें।", "icon": "fa-image"},
+            {"title": "आयु का प्रमाण", "description": "यह सत्यापित करने के लिए कि आपकी आयु 18+ है, जन्म प्रमाण पत्र या 10वीं की मार्कशीट।", "icon": "fa-calendar-check"},
+            {"title": "पते का प्रमाण", "description": "बिजली/पानी का बिल, बैंक पासबुक या किराया समझौता।", "icon": "fa-home"},
+            {"title": "पहचान प्रमाण", "description": "आधिकारिक सत्यापन के लिए आधार कार्ड, पैन कार्ड या पासपोर्ट।", "icon": "fa-id-card"},
+            {"title": "हस्ताक्षरित घोषणा पत्र", "description": "फॉर्म 6 घोषणा यह पुष्टि करती है कि आप कहीं और पंजीकृत नहीं हैं।", "icon": "fa-file-signature"}
+        ],
+        "timeline": [
+            {"phase": "चरण 1", "title": "मतदाता सूची संशोधन", "description": "ECI मतदाता सूची को अपडेट करता है, नए मतदाताओं को जोड़ता है और प्रविष्टियों को हटाता है।", "status": "पूर्ण"},
+            {"phase": "चरण 2", "title": "नामांकन दाखिल करना", "description": "उम्मीदवार अपने कागजात दाखिल करते हैं, जिनकी जांच निर्वाचन अधिकारी द्वारा की जाती है।", "status": "प्रगति में"},
+            {"phase": "चरण 3", "title": "मतदान दिवस", "description": "पंजीकृत मतदाता EVM का उपयोग करके अपना वोट डालने के लिए बूथों पर जाते हैं।", "status": "आगामी"},
+            {"phase": "चरण 4", "title": "मतगणना और परिणाम", "description": "सुरक्षित केंद्रों में EVM खोले जाते हैं, वोटों की गिनती की जाती है और विजेताओं की घोषणा की जाती है।", "status": "आगामी"}
+        ]
+    }
+}

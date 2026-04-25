@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+python-dotenv
+google-genai
+pydantic
+pydantic-settings
+python-multipart
+httpx
+jinja2
+pytest
+pytest-asyncio
+python-jose[cryptography]
+passlib[bcrypt]
+google-auth
+google-auth-oauthlib
+google-auth-httplib2

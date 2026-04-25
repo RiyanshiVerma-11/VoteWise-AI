@@ -1,0 +1,82 @@
+{
+    "hi": {
+        "en": "Hello! I am your VoteWise Guide. How can I help you with your election-related queries today?",
+        "hi": "नमस्ते! मैं आपका VoteWise गाइड हूँ। मैं आपकी चुनाव संबंधी जानकारी में कैसे मदद कर सकता हूँ?"
+    },
+    "hello": {
+        "en": "Hello! I am your VoteWise Guide. How can I help you with your election-related queries today?",
+        "hi": "नमस्ते! मैं आपका VoteWise गाइड हूँ। मैं आपकी चुनाव संबंधी जानकारी में कैसे मदद कर सकता हूँ?"
+    },
+    "hey": {
+        "en": "Hello! I am your VoteWise Guide. How can I help you with your election-related queries today?",
+        "hi": "नमस्ते! मैं आपका VoteWise गाइड हूँ। मैं आपकी चुनाव संबंधी जानकारी में कैसे मदद कर सकता हूँ?"
+    },
+    "नमस्ते": {
+        "en": "Hello! I am your VoteWise Guide. How can I help you with your election-related queries today?",
+        "hi": "नमस्ते! मैं आपका VoteWise गाइड हूँ। मैं आपकी चुनाव संबंधी जानकारी में कैसे मदद कर सकता हूँ?"
+    },
+    "how to register": {
+        "en": "You can register to vote by filling out Form 6. You can do this online through the Voter Service Portal (voters.eci.gov.in) or offline at your local Registrar office.",
+        "hi": "आप फॉर्म 6 भरकर मतदान के लिए पंजीकरण कर सकते हैं। आप इसे ऑनलाइन वोटर सर्विस पोर्टल (voters.eci.gov.in) के माध्यम से या अपने स्थानीय रजिस्ट्रार कार्यालय में जाकर ऑफलाइन कर सकते हैं।"
+    },
+    "पंजीकरण कैसे करें": {
+        "en": "You can register to vote by filling out Form 6. You can do this online through the Voter Service Portal (voters.eci.gov.in) or offline at your local Registrar office.",
+        "hi": "आप फॉर्म 6 भरकर मतदान के लिए पंजीकरण कर सकते हैं। आप इसे ऑनलाइन वोटर सर्विस पोर्टल (voters.eci.gov.in) के माध्यम से या अपने स्थानीय रजिस्ट्रार कार्यालय में जाकर ऑफलाइन कर सकते हैं।"
+    },
+    "who can vote": {
+        "en": "Indian citizens who are 18 years or older as of January 1st of the revision year are eligible to vote.",
+        "hi": "भारतीय नागरिक जो संशोधन वर्ष के 1 जनवरी तक 18 वर्ष या उससे अधिक आयु के हैं, मतदान करने के पात्र हैं।"
+    },
+    "मतदान कौन कर सकता है": {
+        "en": "Indian citizens who are 18 years or older as of January 1st of the revision year are eligible to vote.",
+        "hi": "भारतीय नागरिक जो संशोधन वर्ष के 1 जनवरी तक 18 वर्ष या उससे अधिक आयु के हैं, मतदान करने के पात्र हैं।"
+    },
+    "documents for registration": {
+        "en": "You need proof of identity (Aadhaar, Passport), proof of address (Utility bill, Rent agreement), and proof of age (Birth certificate, 10th mark sheet).",
+        "hi": "आपको पहचान का प्रमाण (आधार, पासपोर्ट), पते का प्रमाण (बिजली बिल, रेंट एग्रीमेंट), और उम्र का प्रमाण (जन्म प्रमाण पत्र, 10वीं की मार्कशीट) चाहिए।"
+    },
+    "पंजीकरण के लिए दस्तावेज": {
+        "en": "You need proof of identity (Aadhaar, Passport), proof of address (Utility bill, Rent agreement), and proof of age (Birth certificate, 10th mark sheet).",
+        "hi": "आपको पहचान का प्रमाण (आधार, पासपोर्ट), पते का प्रमाण (बिजली बिल, रेंट एग्रीमेंट), और उम्र का प्रमाण (जन्म प्रमाण पत्र, 10वीं की मार्कशीट) चाहिए।"
+    },
+    "where is my polling booth": {
+        "en": "You can locate your polling booth online via the ECI portal or use our 'Find Polling Station' tool on the dashboard.",
+        "hi": "आप ECI पोर्टल के माध्यम से अपना मतदान केंद्र ऑनलाइन ढूंढ सकते हैं या हमारे डैशबोर्ड पर 'पोलिंग स्टेशन खोजें' टूल का उपयोग कर सकते हैं।"
+    },
+    "मेरा मतदान केंद्र कहां है": {
+        "en": "You can locate your polling booth online via the ECI portal or use our 'Find Polling Station' tool on the dashboard.",
+        "hi": "आप ECI पोर्टल के माध्यम से अपना मतदान केंद्र ऑनलाइन ढूंढ सकते हैं या हमारे डैशबोर्ड पर 'पोलिंग स्टेशन खोजें' टूल का उपयोग कर सकते हैं।"
+    },
+    "what if i lost my voter id": {
+        "en": "If you lost your voter ID (EPIC), don't worry! As long as your name is on the electoral roll, you can vote using alternative IDs like Aadhaar, Passport, PAN Card, or Driving License.",
+        "hi": "अगर आपने अपना वोटर आईडी (EPIC) खो दिया है, तो चिंता न करें! यदि आपका नाम मतदाता सूची में है, तो आप आधार, पासपोर्ट, पैन कार्ड या ड्राइविंग लाइसेंस जैसे वैकल्पिक आईडी का उपयोग करके मतदान कर सकते हैं।"
+    },
+    "अगर मेरा वोटर आईडी खो गया है": {
+        "en": "If you lost your voter ID (EPIC), don't worry! As long as your name is on the electoral roll, you can vote using alternative IDs like Aadhaar, Passport, PAN Card, or Driving License.",
+        "hi": "अगर आपने अपना वोटर आईडी (EPIC) खो दिया है, तो चिंता न करें! यदि आपका नाम मतदाता सूची में है, तो आप आधार, पासपोर्ट, पैन कार्ड या ड्राइविंग लाइसेंस जैसे वैकल्पिक आईडी का उपयोग करके मतदान कर सकते हैं।"
+    },
+    "what is vvpat": {
+        "en": "VVPAT stands for Voter Verified Paper Audit Trail. It allows you to physically verify that your vote was cast correctly via a slip generated after you press the EVM button.",
+        "hi": "VVPAT का मतलब वोटर वेरिफिएबल पेपर ऑडिट ट्रेल है। जब आप EVM का बटन दबाते हैं, तो यह एक पर्ची जनरेट करता है जिससे आप यह सत्यापित कर सकते हैं कि आपका वोट सही से दर्ज हुआ है।"
+    },
+    "vvpat क्या है": {
+        "en": "VVPAT stands for Voter Verified Paper Audit Trail. It allows you to physically verify that your vote was cast correctly via a slip generated after you press the EVM button.",
+        "hi": "VVPAT का मतलब वोटर वेरिफिएबल पेपर ऑडिट ट्रेल है। जब आप EVM का बटन दबाते हैं, तो यह एक पर्ची जनरेट करता है जिससे आप यह सत्यापित कर सकते हैं कि आपका वोट सही से दर्ज हुआ है।"
+    },
+    "what does a blo do": {
+        "en": "A Booth Level Officer (BLO) is a local representative of the Election Commission who visits your residence for field verification of voter details.",
+        "hi": "बूथ लेवल अधिकारी (BLO) चुनाव आयोग का एक स्थानीय प्रतिनिधि होता है जो मतदाता विवरण के सत्यापन के लिए आपके घर का दौरा करता है।"
+    },
+    "nri voting": {
+        "en": "Non-Resident Indians (NRIs) can register as Overseas Electors by filling out Form 6A. However, they must cast their vote in person at their registered constituency in India.",
+        "hi": "अनिवासी भारतीय (NRI) फॉर्म 6A भरकर विदेशी मतदाता के रूप में पंजीकरण कर सकते हैं। हालांकि, उन्हें भारत में अपने पंजीकृत निर्वाचन क्षेत्र में व्यक्तिगत रूप से मतदान करना होता है।"
+    },
+    "election phases": {
+        "en": "The election timeline generally includes Voter List Revision, Nomination Filing, Polling Day, and Counting & Results.",
+        "hi": "चुनाव की समयरेखा में आमतौर पर मतदाता सूची संशोधन, नामांकन दाखिल करना, मतदान का दिन और मतगणना व परिणाम शामिल होते हैं।"
+    },
+    "what is form 8": {
+        "en": "Form 8 is used for correction of entries in the electoral roll or shifting of residence.",
+        "hi": "फॉर्म 8 का उपयोग मतदाता सूची में प्रविष्टियों में सुधार या निवास स्थान बदलने के लिए किया जाता है।"
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "registration": {
+        "en": "### 1. Check Your Eligibility\nBefore you start, ensure you meet the basic criteria:\n* **Age:** Must be 18+.\n* **Citizenship:** Must be a legal citizen.\n* **Residency:** Register in your current constituency.\n\n### 2. Gather Documents\n* **Identity:** Passport/National ID.\n* **Address:** Utility bills/Rent agreement.\n* **Age:** Birth certificate.\n\n### 3. Registration Methods\n* **Online:** Visit the official Voter Service Portal.\n* **Offline:** Visit your local Registrar office.",
+        "hi": "### 1. अपनी पात्रता जांचें\nशुरू करने से पहले, सुनिश्चित करें कि आप बुनियादी मानदंडों को पूरा करते हैं:\n* **आयु:** 18+ होनी चाहिए।\n* **नागरिकता:** कानूनी नागरिक होना चाहिए।\n* **निवास:** अपने वर्तमान निर्वाचन क्षेत्र में पंजीकरण करें।\n\n### 2. दस्तावेज इकट्ठा करें\n* **पहचान:** पासपोर्ट/आधार/राष्ट्रीय आईडी।\n* **पता:** बिजली बिल/किराया समझौता।\n* **आयु:** जन्म प्रमाण पत्र/10वीं की मार्कशीट।\n\n### 3. पंजीकरण के तरीके\n* **ऑनलाइन:** आधिकारिक मतदाता सेवा पोर्टल पर जाएं।\n* **ऑफलाइन:** भौतिक प्रतियों के साथ अपने स्थानीय रजिस्ट्रार कार्यालय में जाएं।"
+    },
+    "verification": {
+        "en": "### Identity Verification Process\nThis step ensures that every vote is cast by a real, eligible citizen.\n1. **Document Match:** Officials compare scans with records.\n2. **Field Verification:** A Booth Level Officer (BLO) may visit your residence to verify voter details at the doorstep.",
+        "hi": "### पहचान सत्यापन प्रक्रिया\nयह चरण सुनिश्चित करता है कि प्रत्येक वोट एक वास्तविक, पात्र नागरिक द्वारा डाला गया है।\n1. **दस्तावेज़ मिलान:** अधिकारी रिकॉर्ड के साथ स्कैन की तुलना करते हैं।\n2. **क्षेत्र सत्यापन:** एक बूथ लेवल अधिकारी (BLO) आपके घर आकर मतदाता विवरण का सत्यापन कर सकता है।"
+    },
+    "voting": {
+        "en": "### Your Polling Day Roadmap\n1. **Find Booth:** Locate your station online via the ECI portal.\n2. **Entry:** Show your identity proof to the first polling officer. A physical Voter ID is not mandatory if your name is on the roll; other valid IDs are accepted.\n3. **Ink:** The second officer will ink your left index finger and take your signature.\n4. **Vote:** Proceed to the secret voting booth and press the button on the EVM.",
+        "hi": "### आपके मतदान दिवस का रोडमैप\n1. **बूथ खोजें:** ECI पोर्टल के माध्यम से अपना स्टेशन ऑनलाइन खोजें।\n2. **प्रवेश:** पहले मतदान अधिकारी को अपनी पहचान का प्रमाण दिखाएं। यदि आपका नाम मतदाता सूची में है तो भौतिक वोटर आईडी अनिवार्य नहीं है; अन्य वैध आईडी स्वीकार्य हैं।\n3. **स्याही:** दूसरा अधिकारी आपकी बाईं तर्जनी (left index finger) पर स्याही लगाएगा और आपके हस्ताक्षर लेगा।\n4. **वोट:** गुप्त मतदान कक्ष में जाएं और EVM पर बटन दबाएं।"
+    },
+    "results": {
+        "en": "### Transparency & Result Declaration\n1. **Counting:** Votes are counted transparently in the presence of candidates.\n2. **Declaration:** Results are officially certified by the Returning Officer.\n3. **VVPAT Audit:** Mandatory verification of VVPAT (Voter Verified Paper Audit Trail) slips in randomly selected booths.",
+        "hi": "### पारदर्शिता और परिणाम घोषणा\n1. **गिनती:** उम्मीदवारों की उपस्थिति में वोटों की गिनती पारदर्शी तरीके से की जाती है।\n2. **घोषणा:** परिणाम आधिकारिक तौर पर निर्वाचन अधिकारी द्वारा प्रमाणित होते हैं।\n3. **VVPAT ऑडिट:** बेतरतीब ढंग से चुने गए बूथों में VVPAT (Voter Verified Paper Audit Trail) पर्चियों का अनिवार्य सत्यापन।"
+    },
+    "eligibility": {
+        "en": "### Who can vote in India?\n* **Age:** You must be at least 18 years old on January 1st of the year the roll is revised.\n* **Citizenship:** Only Indian citizens can vote.\n* **Mental Soundness:** Must not be declared of unsound mind by a court.\n* **No Criminal Disqualification:** Must not be disqualified due to certain election offenses.",
+        "hi": "### भारत में कौन मतदान कर सकता है?\n* **आयु:** रोल संशोधित होने वाले वर्ष की 1 जनवरी को आपकी आयु कम से कम 18 वर्ष होनी चाहिए।\n* **नागरिकता:** केवल भारतीय नागरिक ही मतदान कर सकते हैं।\n* **मानसिक स्थिति:** अदालत द्वारा मानसिक रूप से अस्वस्थ घोषित नहीं किया जाना चाहिए।\n* **कोई आपराधिक अयोग्यता नहीं:** कुछ चुनाव अपराधों के कारण अयोग्य नहीं ठहराया जाना चाहिए।"
+    },
+    "forms": {
+        "en": "### Important Election Forms\n* **Form 6:** New registration for Indian citizens.\n* **Form 6A:** Registration for Non-Resident Indians (NRIs) as Overseas Electors.\n* **Form 7:** Objection to inclusion or deletion of a name.\n* **Form 8:** Correction of entries or shifting of residence.",
+        "hi": "### महत्वपूर्ण चुनाव फॉर्म\n* **फॉर्म 6:** भारतीय नागरिकों के लिए नया पंजीकरण।\n* **फॉर्म 6A:** अनिवासी भारतीयों (NRI) के लिए विदेशी मतदाता के रूप में पंजीकरण।\n* **फॉर्म 7:** नाम शामिल करने या हटाने पर आपत्ति।\n* **फॉर्म 8:** प्रविष्टियों में सुधार या निवास स्थान बदलना।"
+    }
+}

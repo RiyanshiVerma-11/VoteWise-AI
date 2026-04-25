@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VoteWise AI | Your Smart Civic Guide</title>
+    <!-- Force CSS Refresh with /static/ prefix and new filename -->
+    <link rel="stylesheet" href="/static/styles/premium.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- New Top Navigation Bar -->
+        <nav class="top-nav">
+            <a href="#" class="nav-brand" onclick="app.showModule('dashboard')">
+                <img src="/static/logo_votewise_ai.png" alt="Logo" style="width: 35px; height: 35px; object-fit: contain;">
+                <span>VoteWise AI</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#" class="nav-link active" onclick="app.showModule('dashboard')">Dashboard</a>
+                <a href="#" class="nav-link" onclick="app.showModule('checklist')">Doc Checklist</a>
+                <a href="#" class="nav-link" onclick="app.showModule('timeline')">Election Timeline</a>
+                <a href="#" class="nav-link" onclick="app.showModule('mock-id')">Mock Voter ID</a>
+            </div>
+
+            <div class="user-pill">
+                <div class="avatar" id="userAvatar">V</div>
+                <div style="flex-direction: column; display: flex;">
+                    <span id="userName" style="font-weight: 600; font-size: 0.85rem;">Voter</span>
+                    <span id="userPoints" style="font-size: 0.7rem; color: var(--accent); font-weight: 700;"><i class="fas fa-medal"></i> 0 Points</span>
+                </div>
+                <button onclick="logout()" class="logout-btn" title="Sign Out" style="margin-left: 1rem;">
+                    <i class="fas fa-power-off"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="header-bar">
+                <div>
+                    <h2 id="pageTitle" class="fade-in">Election Roadmap</h2>
+                    <p id="pageSubtitle" style="color: var(--text-muted);">Step-by-step guide to your democratic rights</p>
+                </div>
+                <div style="display: flex; gap: 1rem;">
+                    <button class="btn-primary" style="background: white; color: var(--primary); border: 1px solid var(--primary);" id="langToggle" onclick="app.toggleLanguage()">
+                        <i class="fas fa-language"></i> English / Hindi
+                    </button>
+                </div>
+            </header>
+
+            <div id="dynamicWorkspace" class="fade-in">
+                <div class="roadmap-grid" id="stepsGrid"></div>
+                <div id="moduleContent"></div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Floating AI Panel (Bottom Right) -->
+    <div class="ai-panel" id="chatPanel">
+        <div class="ai-header">
+            <div class="avatar" style="background: white; color: var(--primary);"><i class="fas fa-robot"></i></div>
+            <div style="flex: 1;">
+                <div style="font-weight: 600; font-size: 0.9rem;">VoteWise Guide</div>
+                <div style="font-size: 0.7rem; opacity: 0.8;" id="chatStatus">Online | AI Powered</div>
+            </div>
+            <button onclick="app.toggleChat()" style="background:none; border:none; color:white; cursor:pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="ai-messages" id="chatMessages">
+            <div class="bubble ai">
+                Namaste! I am your VoteWise Guide. How can I help you navigate the election process today?
+            </div>
+        </div>
+        <div class="ai-input-area">
+            <input type="text" id="userInput" class="ai-input" placeholder="Type your question..." onkeypress="if(event.key === 'Enter') app.handleChatSubmit()">
+            <button onclick="app.handleChatSubmit()" class="btn-primary" style="padding: 0.5rem 1rem;">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Floating Chat Trigger -->
+    <button onclick="app.toggleChat()" style="position: fixed; bottom: 2rem; right: 2rem; width: 60px; height: 60px; border-radius: 50%; background: var(--primary); color: white; border: none; box-shadow: var(--shadow-lg); cursor: pointer; z-index: 999; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;">
+        <i class="fas fa-comment-dots"></i>
+    </button>
+
+    <script src="/static/js/votewise_core.js" type="module"></script>
+    <script>
+        const user = sessionStorage.getItem('user');
+        if (!user) {
+            window.location.href = '/login.html';
+        } else {
+            const userData = JSON.parse(user);
+            document.getElementById('userName').innerText = userData.name || 'Voter';
+            document.getElementById('userAvatar').innerText = (userData.name || 'V')[0].toUpperCase();
+        }
+        function logout() {
+            sessionStorage.removeItem('user');
+            window.location.href = '/login.html';
+        }
+    </script>
+</body>
+</html>
