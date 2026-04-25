@@ -1,7 +1,7 @@
 # 🗳️ VoteWise AI: The Intelligent Civic Roadmap
 > **"This system doesn’t just show information — it solves democratic friction in real-time."**
 
-🔴 **Live Demo:** [https://votewise-ai.onrender.com](https://votewise-ai.onrender.com)  
+🔴 **Live Demo:** [https://votewise-ai-bode.onrender.com]
 🔐 **Demo Access:** Pre-configured environment (No setup required)
 
 ---
