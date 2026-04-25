@@ -20,7 +20,7 @@ async def test_chat_success(mock_guidance):
     assert response.json()["response"] == "Mocked AI Response"
 
 @pytest.mark.asyncio
-@patch("app.services.ai_service.ai_service.get_election_guidance", new_callable=AsyncMock)
+@patch("backend.app.services.ai_service.ai_service.get_election_guidance", new_callable=AsyncMock)
 async def test_chat_gemini_down(mock_guidance):
     mock_guidance.side_effect = Exception("Gemini API down")
     response = client.post("/api/chat", json={"message": "How to register?", "lang": "en"})
@@ -28,5 +28,5 @@ async def test_chat_gemini_down(mock_guidance):
     assert "AI Service Error" in response.json()["detail"]
 
 def test_invalid_json_payload():
-    response = client.post("/api/chat", data="invalid json")
+    response = client.post("/api/chat", content="invalid json")
     assert response.status_code == 422 # Unprocessable Entity
