@@ -8,7 +8,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="manifest" href="/static/manifest.json">
+    <link rel="icon" href="/static/logo_votewise_ai.png">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        if (!sessionStorage.getItem('user')) {
+            window.location.href = '/login.html';
+        }
+    </script>
     <style>
         .lite-mode {
             --primary-gradient: #4f46e5 !important;
