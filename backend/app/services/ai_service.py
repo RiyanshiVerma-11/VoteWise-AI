@@ -5,6 +5,7 @@ from typing import Optional
 from google import genai
 from google.genai import types
 from dotenv import load_dotenv
+from tenacity import retry, stop_after_attempt, wait_exponential, retry_if_exception_type
 
 load_dotenv()
 
@@ -66,6 +67,21 @@ class AIService:
             self.factcheck_cache = {}
             self.guidance_cache = {}
             self._in_flight = set()
+
+    @retry(
+        stop=stop_after_attempt(3),
+        wait=wait_exponential(multiplier=1, min=2, max=10),
+        retry=retry_if_exception_type((Exception)), # We'll refine this if needed
+        reraise=True
+    )
+    async def _generate_content_with_retry(self, prompt, config):
+        if not self.client:
+            raise Exception("Gemini client not initialized")
+        return self.client.models.generate_content(
+            model='gemini-2.0-flash',
+            contents=prompt,
+            config=config
+        )
 
     async def get_election_guidance(self, query: str, step: Optional[str] = None, lang: str = "en") -> str:
         """
@@ -132,9 +148,8 @@ class AIService:
             self._in_flight.add(lock_key)
             
             try:
-                response = self.client.models.generate_content(
-                    model='gemini-2.0-flash',
-                    contents=prompt,
+                response = await self._generate_content_with_retry(
+                    prompt=prompt,
                     config=types.GenerateContentConfig(
                         automatic_function_calling=types.AutomaticFunctionCallingConfig(disable=True)
                     )
@@ -189,9 +204,8 @@ class AIService:
             self._in_flight.add(lock_key)
 
             try:
-                response = self.client.models.generate_content(
-                    model='gemini-2.0-flash',
-                    contents=prompt,
+                response = await self._generate_content_with_retry(
+                    prompt=prompt,
                     config=types.GenerateContentConfig(
                         automatic_function_calling=types.AutomaticFunctionCallingConfig(disable=True)
                     )

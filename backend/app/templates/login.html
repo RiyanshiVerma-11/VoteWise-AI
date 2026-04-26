@@ -88,12 +88,23 @@
                 .then(data => {
                     google.accounts.id.initialize({
                         client_id: data.google_client_id,
-                        callback: handleCredentialResponse
+                        callback: handleCredentialResponse,
+                        auto_select: true, // Attempt to log in automatically
+                        itp_support: true
                     });
+                    
+                    // Render the standard button as fallback
                     google.accounts.id.renderButton(
                         document.getElementById("googleBtn"),
                         { theme: "outline", size: "large", shape: "pill", width: 320, text: "continue_with" }
                     );
+
+                    // Trigger the One-tap prompt
+                    google.accounts.id.prompt((notification) => {
+                        if (notification.isNotDisplayed() || notification.isSkippedMoment()) {
+                            console.log("One-tap not displayed, user can use the button.");
+                        }
+                    });
                 });
         };
     </script>

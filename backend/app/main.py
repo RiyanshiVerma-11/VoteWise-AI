@@ -76,8 +76,8 @@ async def add_security_headers(request: Request, call_next):
         "script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://cdnjs.cloudflare.com https://accounts.google.com; "
         "style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; "
         "font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; "
-        "img-src 'self' data: https://*.googleapis.com https://lh3.googleusercontent.com; "
-        "frame-src https://www.youtube.com https://youtube.com https://calendar.google.com https://accounts.google.com; "
+        "img-src 'self' data: https://*.googleapis.com https://lh3.googleusercontent.com https://raw.githubusercontent.com https://fonts.gstatic.com; "
+        "frame-src 'self' https://www.youtube.com https://youtube.com https://calendar.google.com https://accounts.google.com https://www.google.com https://www.google.co.in; "
         "connect-src 'self' https://generativelanguage.googleapis.com https://accounts.google.com;"
     )
     return response

@@ -14,3 +14,5 @@ passlib[bcrypt]
 google-auth
 google-auth-oauthlib
 google-auth-httplib2
+tenacity
+google-api-core

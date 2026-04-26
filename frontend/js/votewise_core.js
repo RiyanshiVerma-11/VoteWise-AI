@@ -11,7 +11,8 @@ class VoteWiseApp {
         this.steps = [];
         this.completedSteps = JSON.parse(sessionStorage.getItem('completedSteps')) || [];
         this.civicPoints = parseInt(localStorage.getItem('civicPoints')) || 0;
-        this.isProcessing = false; // Flag to prevent redundant AI calls
+        this.isProcessing = false; 
+        this.googleApiKey = "";
         
         this.I18N = {
             en: {
@@ -132,12 +133,19 @@ class VoteWiseApp {
     }
 
     async init() {
+        try {
+            const configRes = await fetch('/api/config');
+            const configData = await configRes.json();
+            this.googleApiKey = ""; // Resetting to empty to force standard embed unless user has real Maps key
+        } catch (e) { console.warn("Config fetch failed"); }
+
         this.updateLangUI();
         this.updateNavLabels();
         await this.loadSteps();
         this.renderDashboard();
         this.updatePointsDisplay();
         this.startTickerRotation();
+        this.updateProfile();
         this.showWelcomeMessage();
         this.bindEvents();
     }
@@ -221,6 +229,26 @@ class VoteWiseApp {
         if (pDisplay) pDisplay.innerHTML = `${this.civicPoints} Pts | ${progress}% Mastery`;
     }
 
+    updateProfile() {
+        const userStr = sessionStorage.getItem('user');
+        if (!userStr) return;
+        const user = JSON.parse(userStr);
+        console.log("Updating profile for:", user);
+
+        const nameEl = document.getElementById('userName');
+        const avatarEl = document.getElementById('userAvatar');
+
+        if (nameEl) nameEl.innerText = user.name || 'Voter';
+        if (avatarEl) {
+            if (user.picture) {
+                avatarEl.innerHTML = `<img src="${user.picture}" alt="${user.name}" style="width: 100%; height: 100%; object-fit: cover;">`;
+            } else {
+                const initial = user.name ? user.name.charAt(0).toUpperCase() : 'V';
+                avatarEl.innerText = initial;
+            }
+        }
+    }
+
     renderDashboard() {
         const LANG_STRINGS = {
             en: { title: 'Election Roadmap', subtitle: 'Your definitive path to democratic participation' },
@@ -293,13 +321,13 @@ class VoteWiseApp {
             <div style="grid-column: 1 / -1; margin-top: 3rem;">
                 <h3 style="font-size: 1.5rem; font-weight: 800; color: var(--text-header); margin-bottom: 1.5rem;">${t.quick_tools}</h3>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
-                    <div class="list-item" tabindex="0" aria-label="${t.find_booth}" onclick="window.open('https://www.google.com/maps/search/polling+station+near+me', '_blank')" onkeypress="if(event.key === 'Enter') window.open('https://www.google.com/maps/search/polling+station+near+me', '_blank')" style="cursor: pointer;">
+                    <div class="list-item" tabindex="0" aria-label="${t.find_booth}" onclick="app.showModule('booth-finder')" onkeypress="if(event.key === 'Enter') app.showModule('booth-finder')" style="cursor: pointer;">
                         <div style="width: 45px; height: 45px; background: #fee2e2; color: #ef4444; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
                             <div style="font-weight: 700;">${t.find_booth}</div>
-                            <div style="font-size: 0.75rem; opacity: 0.7;">Powered by Google Maps</div>
+                            <div style="font-size: 0.75rem; opacity: 0.7;">Official Maps Integration</div>
                         </div>
                     </div>
                     <div class="list-item" tabindex="0" aria-label="${t.fact_checker}" onclick="app.showModule('factchecker')" onkeypress="if(event.key === 'Enter') app.showModule('factchecker')" style="cursor: pointer;">
@@ -520,8 +548,12 @@ class VoteWiseApp {
                         </div>
                     </div>
 
-                    <button class="btn-primary" style="width: 100%; height: 55px; font-weight: 800; border-radius: 16px;" onclick="alert('Syncing with Google Wallet...')">
-                        <i class="fab fa-google-pay" style="font-size: 1.4rem; vertical-align: middle; margin-right: 8px;"></i> ${t.google_wallet}
+                    <button style="border: none; background: transparent; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 1rem; border: 1px solid #e2e8f0; border-radius: 12px;" onclick="alert('Syncing with Google Wallet API...')">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 5H5C3.89543 5 3 5.89543 3 7V17C3 18.1046 3.89543 19 5 19H19C20.1046 19 21 18.1046 21 17V7C21 5.89543 20.1046 5 19 5Z" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M3 10H21" stroke="#4F46E5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span style="font-weight: 800; font-size: 1.1rem; color: #1f2937;">${t.google_wallet}</span>
                     </button>
                     
                     <div style="margin-top: 1.5rem; font-size: 0.6rem; color: var(--text-body); opacity: 0.5; letter-spacing: 1px;">
@@ -541,7 +573,111 @@ class VoteWiseApp {
         else if (module === 'comparison') await this.renderComparison();
         else if (module === 'factchecker') await this.renderFactChecker();
         else if (module === 'analytics') await this.renderAnalytics();
+        else if (module === 'booth-finder') await this.renderBoothFinder();
         else this.renderDashboard();
+    }
+
+    async renderBoothFinder() {
+        const t = this.I18N[this.currentLanguage] || this.I18N.en;
+        this.pageTitle.innerText = t.find_booth;
+        this.pageSubtitle.innerText = "Navigate from your residence to the nearest polling station.";
+        
+        const defaultUrl = `https://www.google.com/maps?q=polling+booth+search+India&output=embed&z=5`;
+
+        this.moduleContent.innerHTML = `
+            <div class="fade-in" style="display: flex; flex-direction: column; gap: 1rem; width: 100%; max-width: 1100px; margin: 0 auto;">
+                <div class="glass-container" style="padding: 1.25rem; display: flex; align-items: center; justify-content: space-between; border-left: 5px solid #10b981; background: rgba(255,255,255,0.8);">
+                    <div style="display: flex; align-items: center; gap: 1rem;">
+                        <div style="width: 45px; height: 45px; background: #ecfdf5; color: #10b981; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;">
+                            <i class="fas fa-route"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 800; font-size: 1rem;">Your Voting Journey</div>
+                            <div style="font-size: 0.75rem; opacity: 0.7;">Start: Current Location | End: Verified Booth</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 0.75rem;">
+                        <button id="navBtn" class="btn-primary" onclick="app.startNavigation()" style="display: none; padding: 0.8rem 1.5rem; border-radius: 12px; font-weight: 700; background: #ef4444; border-color: #ef4444; box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);">
+                            <i class="fas fa-directions"></i> Start Navigation
+                        </button>
+                        <button class="btn-primary" onclick="app.locateUser()" style="padding: 0.8rem 1.5rem; border-radius: 12px; font-weight: 700; background: #10b981; border-color: #10b981;">
+                            <i class="fas fa-map-marked-alt"></i> Find Near Me
+                        </button>
+                    </div>
+                </div>
+
+                <div style="display: grid; grid-template-columns: 1fr 280px; gap: 1rem;">
+                    <div class="glass-container" style="padding: 0; overflow: hidden; height: 600px; border-radius: 24px; border: 1px solid rgba(0,0,0,0.05); position: relative;">
+                        <div id="mapLoader" style="display:none; position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(255,255,255,0.9); z-index: 10; align-items: center; justify-content: center; flex-direction: column; gap: 1rem;">
+                            <i class="fas fa-compass fa-spin" style="font-size: 2rem; color: #10b981;"></i>
+                            <div style="font-weight: 700;">Mapping your route...</div>
+                        </div>
+                        <iframe 
+                            id="boothMap"
+                            width="100%" 
+                            height="100%" 
+                            frameborder="0" 
+                            style="border:0;" 
+                            src="${defaultUrl}" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    
+                    <div class="glass-container" style="padding: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div style="font-weight: 800; font-size: 0.9rem; color: var(--text-header); border-bottom: 1px solid #f1f5f9; padding-bottom: 0.5rem;">MAP LEGEND</div>
+                        
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 12px; height: 12px; background: #3b82f6; border-radius: 50%; box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);"></div>
+                            <div style="font-size: 0.8rem; font-weight: 600;">Your Location (Start)</div>
+                        </div>
+                        
+                        <div style="display: flex; align-items: center; gap: 0.75rem;">
+                            <div style="width: 12px; height: 12px; background: #ef4444; clip-path: polygon(50% 0%, 100% 100%, 0% 100%);"></div>
+                            <div style="font-size: 0.8rem; font-weight: 600;">Polling Booth (End)</div>
+                        </div>
+
+                        <div style="margin-top: auto; padding: 1rem; background: #f8fafc; border-radius: 12px; font-size: 0.7rem; line-height: 1.4;">
+                            <i class="fas fa-info-circle" style="color: #64748b;"></i> Tip: Click 'Start Navigation' to get step-by-step directions to your booth.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    locateUser() {
+        const mapFrame = document.getElementById('boothMap');
+        const loader = document.getElementById('mapLoader');
+        const navBtn = document.getElementById('navBtn');
+        if (!mapFrame) return;
+
+        if (navigator.geolocation) {
+            if (loader) loader.style.display = 'flex';
+            
+            navigator.geolocation.getCurrentPosition((position) => {
+                this.userCoords = { lat: position.coords.latitude, lon: position.coords.longitude };
+                mapFrame.src = `https://www.google.com/maps?q=polling+booth&ll=${this.userCoords.lat},${this.userCoords.lon}&z=15&output=embed`;
+                if (navBtn) navBtn.style.display = 'flex';
+                setTimeout(() => { if (loader) loader.style.display = 'none'; }, 1500);
+            }, (error) => {
+                if (loader) loader.style.display = 'none';
+                alert("Location permission denied. Showing booths across India.");
+                mapFrame.src = `https://www.google.com/maps?q=polling+booth+India&output=embed&z=10`;
+            });
+        } else {
+            alert("Geolocation is not supported by this browser.");
+        }
+    }
+
+    startNavigation() {
+        if (!this.userCoords) {
+            alert("Please use 'Find Near Me' first to locate your start point.");
+            return;
+        }
+        // Using 'Election Commission Office' as a permanent marker query.
+        // This ensures markers are visible even when active polling is not in progress.
+        const url = `https://www.google.com/maps/search/Election+Commission+Office/@${this.userCoords.lat},${this.userCoords.lon},12z`;
+        window.open(url, '_blank');
     }
 
     async renderComparison() {

@@ -70,10 +70,10 @@
             
             <div class="profile-hub" style="display: flex; align-items: center; gap: 0.5rem; border-left: 1px solid #e2e8f0; padding-left: 0.75rem;">
                 <div style="text-align: right;">
-                    <div style="font-weight: 800; font-size: 0.8rem; color: var(--text-header); white-space: nowrap;">Voter 3154</div>
+                    <div id="userName" style="font-weight: 800; font-size: 0.8rem; color: var(--text-header); white-space: nowrap;">Voter</div>
                     <div id="userPoints" style="font-size: 0.65rem; color: var(--primary); font-weight: 600; white-space: nowrap;">0 Pts | 0% Mastery</div>
                 </div>
-                <div style="width: 36px; height: 36px; background: var(--primary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 900; font-size: 1rem; flex-shrink: 0;">
+                <div id="userAvatar" style="width: 36px; height: 36px; background: var(--primary-gradient); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 900; font-size: 1rem; flex-shrink: 0; overflow: hidden; border: 2px solid white; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
                     V
                 </div>
             </div>
@@ -120,7 +120,7 @@
         </div>
     </div>
 
-    <script type="module" src="/static/js/votewise_core.js?v=8"></script>
+    <script type="module" src="/static/js/votewise_core.js?v=9"></script>
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {

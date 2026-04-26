@@ -20,11 +20,18 @@ class AuthService:
             # Specify the CLIENT_ID of the app that accesses the backend:
             idinfo = id_token.verify_oauth2_token(token, requests.Request(), self.client_id)
 
-            # ID token is valid. Get the user's Google Account ID from the decoded token.
-            userid = idinfo['sub']
-            return idinfo
-        except ValueError:
+            # ID token is valid. 
+            # We return the full info which includes name, email, picture, and sub (user ID)
+            return {
+                "id": idinfo.get('sub'),
+                "name": idinfo.get('name'),
+                "email": idinfo.get('email'),
+                "picture": idinfo.get('picture'),
+                "status": "authenticated"
+            }
+        except ValueError as e:
             # Invalid token
+            print(f"Token verification failed: {e}")
             return None
 
 auth_service = AuthService()
