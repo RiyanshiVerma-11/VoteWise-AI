@@ -106,9 +106,5 @@
     "evm hacked using bluetooth": {
         "verdict": "❌ **FAKE**",
         "explanation": "**What the actual rule is:**\nIndian EVMs are **standalone** machines with no wireless communication hardware. They have **NO Bluetooth, WiFi, or Internet** capabilities.\n\n**Source:** [Official ECI Guidelines (eci.gov.in)](https://eci.gov.in)"
-    },
-    "new claim": {
-        "verdict": "AI-Verified",
-        "explanation": "Gemini Fact Check"
     }
 }

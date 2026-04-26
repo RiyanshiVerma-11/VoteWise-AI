@@ -1,0 +1,27 @@
+# Git
+.git
+.github
+.gitignore
+
+# Environment
+.env
+.env.*
+
+# Python Cache & Tests
+__pycache__/
+*.pyc
+.pytest_cache/
+.coverage
+tests/
+
+# Scratch & Dev Files
+scratch/
+backend/app/scratch/
+backend/test_gemini.py
+README.md
+LICENSE
+.vscode/
+.idea/
+
+# Large artifacts
+*.log

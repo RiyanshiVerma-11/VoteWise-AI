@@ -3,72 +3,64 @@
         "en": "Hello! I am your VoteWise Guide. How can I help you today?",
         "hi": "नमस्ते! मैं आपका VoteWise गाइड हूँ। मैं आज आपकी कैसे मदद कर सकता हूँ?",
         "mr": "नमस्कार! मी तुमचा VoteWise मार्गदर्शक आहे. मी तुम्हाला आज कशी मदत करू शकतो?",
-        "ta": "வணக்கம்! நான் உங்கள் VoteWise வழிகாட்டி. இன்று நான் உங்களுக்கு எப்படி உதவ முடியும்?",
+        "ta": "வணக்கம்! நான் உங்கள் VoteWise வழிகாட்டி. இன்று நான் உங்களுக்கு ఎలా உதவ முடியும்?",
         "bn": "হ্যালো! আমি আপনার VoteWise গাইড। আজ আমি আপনাকে কীভাবে সাহায্য করতে পারি?",
         "te": "హలో! నేను మీ VoteWise గైడ్. ఈరోజు నేను మీకు ఎలా సహాయపడగలను?"
     },
-    "नमस्ते! मैं आपका VoteWise गाइड हूँ। मैं आपकी कैसे मदद कर सकता हूँ?": {
-        "en": "Hello! I am your VoteWise Guide. How can I help you today?",
-        "hi": "नमस्ते! मैं आपका VoteWise गाइड हूँ। मैं आज आपकी कैसे मदद कर सकता हूँ?",
-        "mr": "नमस्कार! मी तुमचा VoteWise मार्गदर्शक आहे. मी तुम्हाला आज कशी मदत करू शकतो?",
-        "ta": "வணக்கம்! நான் உங்கள் VoteWise வழிகாட்டி. இன்று நான் உங்களுக்கு எப்படி உதவ முடியும்?",
-        "bn": "হ্যালো! আমি আপনার VoteWise গাইড। আজ আমি আপনাকে কীভাবে সাহায্য করতে পারি?",
-        "te": "హలో! నేను మీ VoteWise గైడ్. ఈరోజు నేను మీకు ఎలా సహాయపడగలను?"
-    },
-    "पंजीकरण कैसे करें?": {
+    "How to register?": {
         "en": "To register as a voter in India: Visit voters.eci.gov.in and fill Form 6. You will need a photo, age proof (Aadhaar/PAN), and address proof.",
-        "hi": "भारत में मतदाता के रूप में पंजीकरण करने के लिए: voters.eci.gov.in पर जाएं और फॉर्म 6 भरें। आपको एक फोटो, आयु प्रमाण (आधार/पैन) और पता प्रमाण की आवश्यकता होगी।",
-        "mr": "भारतात मतदार म्हणून नोंदणी करण्यासाठी: voters.eci.gov.in ला भेट द्या आणि फॉर्म ६ भरा. तुम्हाला फोटो, वयाचा पुरावा आणि पत्त्याचा पुरावा लागेल.",
-        "ta": "இந்தியாவில் வாக்காளராக பதிவு செய்ய: voters.eci.gov.in க்குச் சென்று படிவம் 6 ஐ நிரப்பவும். உங்களுக்கு புகைப்படம், வயது சான்று மற்றும் முகவரி சான்று தேவைப்படும்.",
-        "bn": "ভারতে ভোটার হিসেবে নিবন্ধন করতে: voters.eci.gov.in এ যান এবং ফর্ম ৬ পূরণ করুন। আপনার ছবি, বয়সের প্রমাণ এবং ঠিকানার প্রমাণ প্রয়োজন হবে।",
-        "te": "భారతదేశంలో ఓటరుగా నమోదు చేసుకోవడానికి: voters.eci.gov.in సందర్శించి ఫారం 6 నింపండి. మీకు ఫోటో, వయస్సు ధృవీకరణ మరియు చిరునామా ధృవీకరణ అవసరం."
+        "hi": "भारत में मतदाता के रूप में पंजीकरण करने के लिए: voters.eci.gov.in पर जाएं और फॉर्म 6 भरें।"
     },
-    "मतदान कौन कर सकता है?": {
+    "Who can vote?": {
         "en": "Any Indian citizen who is 18 years or older on the qualifying date and whose name is in the Electoral Roll can vote.",
-        "hi": "कोई भी भारतीय नागरिक जो अर्हता तिथि पर 18 वर्ष या उससे अधिक का है और जिसका नाम मतदाता सूची में है, वह मतदान कर सकता है।",
-        "mr": "कोणताही भारतीय नागरिक ज्याचे वय १८ वर्षे पूर्ण आहे आणि ज्याचे नाव मतदार यादीत आहे, तो मतदान करू शकतो.",
-        "ta": "தகுதித் தேதியில் 18 வயது பூர்த்தியடைந்த, வாக்காளர் பட்டியலில் பெயர் உள்ள எந்தவொரு இந்தியக் குடிமகனும் வாக்களிக்கலாம்.",
-        "bn": "যেকোনো ভারতীয় নাগরিক যার বয়স ১৮ বছর বা তার বেশি এবং যার নাম ভোটার তালিকায় আছে সে ভোট দিতে পারে।",
-        "te": "అర్హత తేదీ నాటికి 18 ఏళ్లు నిండిన, ఓటర్ల జాబితాలో పేరున్న ఏ భారతీయ పౌరుడైనా ఓటు వేయవచ్చు."
+        "hi": "कोई भी भारतीय नागरिक जो 18 वर्ष या उससे अधिक का है और जिसका नाम मतदाता सूची में है, वह मतदान कर सकता है।"
     },
-    "जरूरी दस्तावेज?": {
-        "en": "Required documents for voter registration include: 1. Passport size photo, 2. Age Proof (Aadhaar/PAN/Birth Cert), 3. Address Proof (Aadhaar/Electricity Bill).",
-        "hi": "मतदाता पंजीकरण के लिए आवश्यक दस्तावेजों में शामिल हैं: 1. पासपोर्ट साइज फोटो, 2. आयु प्रमाण (आधार/पैन), 3. पता प्रमाण (आधार/बिजली बिल)।",
-        "mr": "मतदार नोंदणीसाठी आवश्यक कागदपत्रे: १. पासपोर्ट आकाराचा फोटो, २. वयाचा पुरावा, ३. पत्त्याचा पुरावा.",
-        "ta": "வாக்காளர் பதிவிற்கு தேவையான ஆவணங்கள்: 1. பாஸ்போர்ட் அளவு புகைப்படம், 2. வயது சான்று, 3. முகவரி சான்று.",
-        "bn": "ভোটার নিবন্ধনের জন্য প্রয়োজনীয় নথি: ১. পাসপোর্ট সাইজ ছবি, ২. বয়সের প্রমাণ, ৩. ঠিকানার প্রমাণ।",
-        "te": "ఓటరు నమోదుకు అవసరమైన పత్రాలు: 1. పాస్‌పోర్ట్ సైజు ఫోటో, 2. వయస్సు ధృవీకరణ, 3. చిరునామా ధృవీకరణ."
+    "Documents needed?": {
+        "en": "Required: 1. Photo, 2. Age Proof (Aadhaar/PAN), 3. Address Proof (Utility bill/Aadhaar).",
+        "hi": "आवश्यक: 1. फोटो, 2. आयु प्रमाण (आधार/पैन), 3. पता प्रमाण (बिजली बिल/आधार)।"
     },
-    "मेरा मतदान केंद्र": {
-        "en": "You can find your polling booth by visiting voters.eci.gov.in and clicking on 'Know Your Polling Station'. You will need your EPIC number.",
-        "hi": "voters.eci.gov.in पर जाकर और 'अपने मतदान केंद्र को जानें' पर क्लिक करके आप अपना मतदान केंद्र पा सकते हैं। आपको अपने EPIC नंबर की आवश्यकता होगी।",
-        "mr": "voters.eci.gov.in वर जाऊन 'तुमचे मतदान केंद्र जाणून घ्या' वर क्लिक करून तुम्ही तुमचे केंद्र शोधू शकता.",
-        "ta": "voters.eci.gov.in க்குச் சென்று 'உங்கள் வாக்குச்சாவடியை அறிந்து கொள்ளுங்கள்' என்பதைக் கிளிக் செய்வதன் மூலம் உங்கள் வாக்குச்சாவடியைக் கண்டறியலாம்.",
-        "bn": "voters.eci.gov.in-এ গিয়ে 'আপনার ভোটকেন্দ্র জানুন' এ ক্লিক করে আপনি আপনার ভোটকেন্দ্র খুঁজে পেতে পারেন।",
-        "te": "voters.eci.gov.inని సందర్శించి 'మీ పోలింగ్ స్టేషన్‌ను తెలుసుకోండి' పై క్లిక్ చేయడం ద్వారా మీ పోలింగ్ బూత్‌ను కనుగొనవచ్చు."
+    "Find my polling booth": {
+        "en": "Visit voters.eci.gov.in and click on 'Know Your Polling Station'. You will need your EPIC number.",
+        "hi": "voters.eci.gov.in पर जाएं और 'अपने मतदान केंद्र को जानें' पर क्लिक करें।"
     },
-    "वोटर ID खो गई?": {
-        "en": "If you lost your Voter ID, you can apply for a replacement on voters.eci.gov.in using Form 8. You can also vote using Aadhaar if your name is in the roll.",
-        "hi": "यदि आपने अपना वोटर ID खो दिया है, तो आप फॉर्म 8 का उपयोग करके voters.eci.gov.in पर प्रतिस्थापन के लिए आवेदन कर सकते हैं। सूची में नाम होने पर आप आधार से भी वोट दे सकते हैं।",
-        "mr": "मतदार ID हरवले असल्यास, तुम्ही voters.eci.gov.in वर फॉर्म ८ वापरून नवीन ID साठी अर्ज करू शकता.",
-        "ta": "உங்கள் வாக்காளர் ஐடியை தொலைத்துவிட்டால், voters.eci.gov.in இல் படிவம் 8 ஐப் பயன்படுத்தி புதிய ஐடிக்கு விண்ணப்பிக்கலாம்.",
-        "bn": "ভোটার আইডি হারিয়ে গেলে, voters.eci.gov.in-এ ফর্ম ৮ ব্যবহার করে নতুন আইডির জন্য আবেদন করতে পারেন।",
-        "te": "మీ ఓటరు ఐడి పోగొట్టుకుంటే, ఫారం 8ని ఉపయోగించి voters.eci.gov.inలో కొత్త ఐడి కోసం దరఖాస్తు చేసుకోవచ్చు."
+    "Lost my Voter ID?": {
+        "en": "If you lost your Voter ID, apply for a replacement on voters.eci.gov.in using Form 8. You can also vote using Aadhaar.",
+        "hi": "वोटर ID खो जाने पर voters.eci.gov.in पर फॉर्म 8 भरें। आधार कार्ड से भी वोट दे सकते हैं।"
     },
-    "VVPAT क्या है?": {
-        "en": "VVPAT (Voter Verifiable Paper Audit Trail) is a system that allows voters to verify that their vote was cast correctly via a printed paper slip.",
-        "hi": "VVPAT (वोटर वेरिफिएबल पेपर ऑडिट ट्रेल) एक ऐसी प्रणाली है जो मतदाताओं को यह सत्यापित करने की अनुमति देती है कि उनका वोट प्रिंटेड पेपर पर्ची के माध्यम से सही ढंग से डाला गया है।",
-        "mr": "VVPAT ही एक प्रणाली आहे जी मतदारांना त्यांचे मत योग्यरित्या नोंदवले गेले आहे की नाही हे कागदी पावतीद्वारे तपासण्याची परवानगी देते.",
-        "ta": "VVPAT என்பது வாக்காளர்கள் தங்கள் வாக்கு சரியாகப் பதிவு செய்யப்பட்டுள்ளதா என்பதை அச்சிடப்பட்ட காகிதச் சீட்டு மூலம் சரிபார்க்க அனுமதிக்கும் ஒரு அமைப்பாகும்.",
-        "bn": "VVPAT হল এমন একটি ব্যবস্থা যা ভোটারদের একটি মুদ্রিত কাগজের স্লিপের মাধ্যমে তাদের ভোট সঠিকভাবে দেওয়া হয়েছে কি না তা যাচাই করতে দেয়।",
-        "te": "VVPAT అనేది ఓటర్లు తమ ఓటు సరిగ్గా వేయబడిందో లేదో ప్రింటెడ్ పేపర్ స్లిప్ ద్వారా సరిచూసుకోవడానికి అనుమతించే ఒక వ్యవస్థ."
+    "What is VVPAT?": {
+        "en": "VVPAT (Voter Verifiable Paper Audit Trail) is a system that allows voters to verify their vote via a printed paper slip.",
+        "hi": "VVPAT एक ऐसी प्रणाली है जो मतदाताओं को प्रिंटेड पेपर पर्ची के माध्यम से अपना वोट सत्यापित करने की अनुमति देती है।"
     },
+    "SCENARIO_DEADLINE": {
+        "en": "If you missed the current phase deadline, you can still register for the next phase. Form 6 is accepted year-round except right before polling.",
+        "hi": "यदि आप वर्तमान चरण की समय सीमा चूक गए हैं, तो आप अगले चरण के लिए पंजीकरण कर सकते हैं।"
+    },
+    "What if I missed the registration deadline?": {"ref": "SCENARIO_DEADLINE"},
+    "पंजीकरण की समय सीमा चूक गई तो क्या होगा?": {"ref": "SCENARIO_DEADLINE"},
+
+    "SCENARIO_BLO": {
+        "en": "If the BLO hasn't visited, check your application status on voters.eci.gov.in or contact the Electoral Registration Officer (ERO).",
+        "hi": "यदि बीएलओ ने दौरा नहीं किया है, तो पोर्टल पर अपनी स्थिति जांचें या ईआरओ से संपर्क करें।"
+    },
+    "What if the BLO does not visit?": {"ref": "SCENARIO_BLO"},
+    "बीएलओ ने दौरा नहीं किया तो क्या होगा?": {"ref": "SCENARIO_BLO"},
+
+    "SCENARIO_EVM_FAIL": {
+        "en": "If the EVM malfunctions, inform the Presiding Officer immediately. They will replace the machine. Your vote is recorded once the beep is heard.",
+        "hi": "ईवीएम खराब होने पर तुरंत अधिकारी को सूचित करें। मशीन बदली जाएगी।"
+    },
+    "What if the EVM malfunctions?": {"ref": "SCENARIO_EVM_FAIL"},
+    "ईवीएम खराब हो जाए तो क्या होगा?": {"ref": "SCENARIO_EVM_FAIL"},
+
+    "SCENARIO_TIE": {
+        "en": "In case of a tie, the Returning Officer decides the winner by a draw of lots as per Section 102 of the RP Act, 1951.",
+        "hi": "टाई होने पर, रिटर्निंग ऑफिसर लॉटरी के माध्यम से विजेता का निर्णय लेता है।"
+    },
+    "What if there is a tie?": {"ref": "SCENARIO_TIE"},
+    "टाई होने पर क्या होता है?": {"ref": "SCENARIO_TIE"},
+
     "fallback_busy": {
         "en": "The Guide is currently busy. Please check the Indian Voter Service Portal (voters.eci.gov.in) for verified information.",
-        "hi": "गाइड अभी व्यस्त है। कृपया सत्यापित जानकारी के लिए भारतीय मतदाता सेवा पोर्टल (voters.eci.gov.in) देखें।",
-        "mr": "मार्गदर्शक सध्या व्यस्त आहे. कृपया पडताळणी केलेल्या माहितीसाठी भारतीय मतदार सेवा पोर्टल (voters.eci.gov.in) पहा.",
-        "ta": "வழிகாட்டி தற்போது பிஸியாக இருக்கிறார். சரிபார்க்கப்பட்ட தகவலுக்கு இந்திய வாக்காளர் சேவை போர்ட்டலை (voters.eci.gov.in) பார்க்கவும்.",
-        "bn": "গাইড বর্তমানে ব্যস্ত। যাচাইকৃত তথ্যের জন্য অনুগ্রহ করে ভারতীয় ভোটার পরিষেবা পোর্টাল (voters.eci.gov.in) দেখুন।",
-        "te": "గైడ్ ప్రస్తుతం బిజీగా ఉన్నారు. ధృవీకరించబడిన సమాచారం కోసం దయచేసి భారతీయ ఓటరు సేవా పోర్టల్ (voters.eci.gov.in)ని తనిఖీ చేయండి."
+        "hi": "गाइड अभी व्यस्त है। कृपया सत्यापित जानकारी के लिए भारतीय मतदाता सेवा पोर्टल (voters.eci.gov.in) देखें।"
     }
 }

@@ -12,6 +12,10 @@
     --text-header: #1e1b4b;
     --text-body: #475569;
     --radius-xl: 32px;
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-blur: blur(12px);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
@@ -223,21 +227,3 @@ body {
     transform: translateY(-1px);
 }
 
-.scenario-chip {
-    background: white;
-    border: 1px solid #d1d5db;
-    padding: 0.4rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.8rem;
-    color: var(--text-body);
-    cursor: pointer;
-    transition: all 0.2s;
-    user-select: none;
-}
-
-.scenario-chip:hover {
-    border-color: var(--primary);
-    color: var(--primary);
-    background: #eff6ff;
-    transform: translateY(-1px);
-}

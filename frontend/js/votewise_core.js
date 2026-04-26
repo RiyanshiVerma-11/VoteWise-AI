@@ -234,7 +234,6 @@ class VoteWiseApp {
         const userStr = sessionStorage.getItem('user');
         if (!userStr) return;
         const user = JSON.parse(userStr);
-        console.log("Updating profile for:", user);
 
         const nameEl = document.getElementById('userName');
         const avatarEl = document.getElementById('userAvatar');
@@ -242,7 +241,14 @@ class VoteWiseApp {
         if (nameEl) nameEl.innerText = user.name || 'Voter';
         if (avatarEl) {
             if (user.picture) {
-                avatarEl.innerHTML = `<img src="${user.picture}" alt="${user.name}" style="width: 100%; height: 100%; object-fit: cover;">`;
+                const img = document.createElement('img');
+                img.src = user.picture;
+                img.alt = user.name || 'User Profile';
+                img.style.width = '100%';
+                img.style.height = '100%';
+                img.style.objectFit = 'cover';
+                avatarEl.innerHTML = '';
+                avatarEl.appendChild(img);
             } else {
                 const initial = user.name ? user.name.charAt(0).toUpperCase() : 'V';
                 avatarEl.innerText = initial;
@@ -498,12 +504,42 @@ class VoteWiseApp {
 
     getScenariosForStep(stepId) {
         const scenarios = {
-            'registration': ["What if I missed the registration deadline?", "What if I live in a different city?"],
-            'verification': ["What if the BLO does not visit?", "What if my name is misspelled on the roll?"],
-            'voting': ["What if someone already voted in my name?", "What if the EVM malfunctions?"],
-            'results': ["What if there is a tie?", "What if I suspect counting fraud?"]
+            'en': {
+                'registration': ["What if I missed the registration deadline?", "What if I live in a different city?"],
+                'verification': ["What if the BLO does not visit?", "What if my name is misspelled on the roll?"],
+                'voting': ["What if someone already voted in my name?", "What if the EVM malfunctions?"],
+                'results': ["What if there is a tie?", "What if I suspect counting fraud?"]
+            },
+            'hi': {
+                'registration': ["पंजीकरण की समय सीमा चूक गई तो क्या होगा?", "अगर मैं दूसरे शहर में रहता हूँ तो?"],
+                'verification': ["बीएलओ ने दौरा नहीं किया तो क्या होगा?", "मतदाता सूची में नाम गलत लिखा हो तो?"],
+                'voting': ["मेरे नाम पर किसी ने वोट दे दिया हो तो?", "ईवीएम खराब हो जाए तो क्या होगा?"],
+                'results': ["टाई होने पर क्या होता है?", "वोटों की गिनती में धोखाधड़ी का संदेह हो तो?"]
+            },
+            'ta': {
+                'registration': ["பதிவு காலக்கெடுவை தவறவிட்டால் என்ன நடக்கும்?", "நான் வேறு நகரத்தில் வசித்தால் என்ன செய்வது?"],
+                'verification': ["BLO வரவில்லை என்றால் என்ன நடக்கும்?", "வாக்காளர் பட்டியலில் பெயர் தவறாக இருந்தால்?"],
+                'voting': ["எனது பெயரில் ஏற்கனவே யாராவது வாக்களித்திருந்தால்?", "EVM பழுதடைந்தால் என்ன செய்வது?"],
+                'results': ["வாக்குகள் சமமாக இருந்தால் என்ன நடக்கும்?", "வாக்கு எண்ணிக்கையில் சந்தேகம் இருந்தால்?"]
+            },
+            'mr': {
+                'registration': ["नोंदणीची मुदत संपली तर काय होईल?", "मी दुसऱ्या शहरात राहत असल्यास काय होईल?"],
+                'voting': ["माझ्या नावाने आधीच मतदान झाले असल्यास?", "ईव्हीएम खराब झाले तर काय होईल?"],
+                'results': ["टाय झाल्यास काय होते?"]
+            },
+            'bn': {
+                'registration': ["নিবন্ধনের সময়সীমা মিস করলে কি হবে?", "আমি অন্য শহরে থাকলে কি হবে?"],
+                'voting': ["আমার নামে ভোট পড়ে গেলে কি হবে?", "EVM বিকল হলে কি হবে?"],
+                'results': ["টাই হলে কি হবে?"]
+            },
+            'te': {
+                'registration': ["నమోదు గడువు ముగిస్తే ఏమి చేయాలి?", "నేను వేరే నగరంలో నివసిస్తుంటే?"],
+                'voting': ["నా పేరు మీద ఎవరైనా ఓటు వేస్తే ఏమి చేయాలి?", "EVM పని చేయకపోతే ఏమి చేయాలి?"],
+                'results': ["టై అయితే ఏమి జరుగుతుంది?"]
+            }
         };
-        return scenarios[stepId] || [];
+        const langScenarios = scenarios[this.currentLanguage] || scenarios.en;
+        return langScenarios[stepId] || [];
     }
 
     checkAnswer(qIdx, selectedIdx, correctIdx, explanation) {
@@ -882,15 +918,8 @@ class VoteWiseApp {
     }
 
     toggleChat() { 
-        if (!this.chatPanel) {
-            this.chatPanel = document.getElementById('chatPanel');
-            console.log("Re-binding chat panel:", this.chatPanel);
-        }
         if (this.chatPanel) {
             this.chatPanel.classList.toggle('open');
-            console.log("Chat panel toggled. State:", this.chatPanel.classList.contains('open'));
-        } else {
-            console.error("Chat panel not found in DOM!");
         }
     }
 

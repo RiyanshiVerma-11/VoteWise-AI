@@ -29,3 +29,9 @@ async def read_login_page(request: Request) -> HTMLResponse:
 async def read_index_page(request: Request) -> HTMLResponse:
     """Serve the main dashboard via /index.html for legacy routing."""
     return templates.TemplateResponse(request=request, name="dashboard_v2.html")
+
+
+@router.get("/dashboard_v2.html", response_class=HTMLResponse)
+async def read_dashboard_v2_page(request: Request) -> HTMLResponse:
+    """Serve the main dashboard via its explicit template name."""
+    return templates.TemplateResponse(request=request, name="dashboard_v2.html")

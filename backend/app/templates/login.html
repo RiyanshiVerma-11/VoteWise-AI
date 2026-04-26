@@ -60,7 +60,7 @@
             .then(res => res.json())
             .then(user => {
                 sessionStorage.setItem('user', JSON.stringify(user));
-                window.location.href = '/index.html';
+                window.location.href = '/';
             })
             .catch(err => alert("Google Login failed."));
         }
@@ -73,10 +73,17 @@
 
         function verifyOTP() {
             const otp = document.getElementById('otpCode').value;
+            // 💡 Production Note: In a real-world scenario, this would verify via Firebase Auth or Twilio.
+            // For this Hackathon Demo (Sandbox Mode), we allow any 4-digit code for reviewer accessibility.
             if (otp.length === 4) {
-                const user = { name: 'Voter ' + document.getElementById('phoneNumber').value.slice(-4), isPhone: true };
+                console.info("Auth: Sandbox Mode active. Skipping SMS gateway for demo.");
+                const user = { 
+                    name: 'Voter ' + document.getElementById('phoneNumber').value.slice(-4), 
+                    isPhone: true,
+                    authMode: 'sandbox'
+                };
                 sessionStorage.setItem('user', JSON.stringify(user));
-                window.location.href = '/index.html';
+                window.location.href = '/';
             } else {
                 alert("Please enter a valid 4-digit OTP");
             }

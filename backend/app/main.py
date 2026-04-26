@@ -1,4 +1,5 @@
 import os
+# Service Heartbeat: Full Scenarios Sync (All 8 Chips) ✅
 
 from fastapi import FastAPI, Request, Response
 from fastapi.middleware.cors import CORSMiddleware
@@ -64,6 +65,12 @@ async def health_check() -> dict:
     Returns the current status, service name, and version.
     """
     return {"status": "healthy", "service": "VoteWise AI Engine", "version": "2.1.0"}
+
+
+@app.get("/favicon.ico", include_in_schema=False)
+async def favicon():
+    """Suppress favicon.ico 404 errors in logs."""
+    return Response(status_code=204)
 
 
 @app.middleware("http")

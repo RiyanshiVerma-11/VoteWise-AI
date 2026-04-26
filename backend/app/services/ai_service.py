@@ -67,7 +67,9 @@ class AIService:
             if os.path.exists(faq_path):
                 with open(faq_path, 'r', encoding='utf-8') as f:
                     self.faq_cache = json.load(f)
+                logger.info(f"Loaded {len(self.faq_cache)} FAQ keys from {faq_path}")
             else:
+                logger.warning(f"FAQ file NOT FOUND at {faq_path}")
                 self.faq_cache = {}
 
             fc_path = os.path.join(base_path, "data", "factcheck_cache.json")
@@ -159,19 +161,29 @@ class AIService:
             return self.guidance_cache[cache_key]
 
         # 2. Check FAQ fallback
-        clean_q = q_lower.replace('?', '').replace('!', '').strip()
+        # Clean both query and keys: remove non-alphanumeric (except spaces) and lowercase
+        clean_q = re.sub(r'[^a-z0-9\s]', '', q_lower).strip()
         query_words = set(clean_q.split())
+        
+        logger.info(f"FAQ Search: query='{query}', clean_q='{clean_q}'")
 
         for key, val in self.faq_cache.items():
             key_lower = key.lower()
-            clean_key = key_lower.replace('?', '').replace('!', '').strip()
-            key_words = set(clean_key.split())
+            clean_key = re.sub(r'[^a-z0-9\s]', '', key_lower).strip()
 
-            if clean_key == clean_q or (key_words and key_words.issubset(query_words)):
-                res = val.get(target_lang, val.get("en", ""))
+            if clean_key == clean_q:
+                logger.info(f"FAQ Hit: key='{key}'")
+                res_obj = val
+                # Resolve reference if it's a pointer to another key
+                if isinstance(val, dict) and "ref" in val:
+                    res_obj = self.faq_cache.get(val["ref"], val)
+                
+                res = res_obj.get(target_lang, res_obj.get("en", ""))
                 if res:
                     self.guidance_cache[cache_key] = res
                     return res
+        
+        logger.warning(f"FAQ Miss for: {clean_q}")
 
         scenario_keywords = {
             "what if", "lost", "problem", "scenario",
@@ -187,7 +199,7 @@ class AIService:
             and not is_scenario
         ):
             info_keywords = {"explain", "tell me", "what is", "guide", "info", "overview"}
-            if any(word in q_lower for word in info_keywords) or len(query) < 35:
+            if any(word in q_lower for word in info_keywords):
                 res = self.cache[step_lower].get(
                     target_lang, self.cache[step_lower].get("en", "")
                 )
