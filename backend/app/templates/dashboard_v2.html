@@ -10,9 +10,38 @@
     <link rel="manifest" href="/static/manifest.json">
     <link rel="icon" href="/static/logo_votewise_ai.png">
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script>
+        // Dynamically initialize all Google Services with API keys from backend
+        async function initGoogleServices() {
+            try {
+                const res = await fetch('/api/config');
+                const config = await res.json();
+                window.GOOGLE_MAPS_API_KEY = config.google_maps_api_key || '';
+
+                // --- Google Maps JS SDK (Dynamic Key Loading) ---
+                const mapsScript = document.createElement('script');
+                mapsScript.src = `https://maps.googleapis.com/maps/api/js?key=${window.GOOGLE_MAPS_API_KEY}&libraries=places,visualization`;
+                mapsScript.async = true;
+                mapsScript.defer = true;
+                mapsScript.onload = () => { window.googleMapsReady = true; };
+                document.head.appendChild(mapsScript);
+
+                // --- Google Identity Services (OAuth) ---
+                const gsiScript = document.createElement('script');
+                gsiScript.src = 'https://accounts.google.com/gsi/client';
+                gsiScript.async = true;
+                document.head.appendChild(gsiScript);
+
+            } catch (e) {
+                console.warn('Google Services init failed:', e);
+            }
+        }
+
         if (!sessionStorage.getItem('user')) {
             window.location.href = '/login.html';
+        } else {
+            initGoogleServices();
         }
     </script>
     <style>

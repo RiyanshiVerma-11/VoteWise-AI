@@ -16,3 +16,5 @@ google-auth-oauthlib
 google-auth-httplib2
 tenacity
 google-api-core
+deep-translator
+gTTS

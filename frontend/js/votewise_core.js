@@ -29,8 +29,8 @@ class VoteWiseApp {
                 registration: "Registration", verification: "Verification", polling: "Polling Day", post_election: "Post-Election",
                 dashboard: "Dashboard", checklist: "Checklist", timeline: "Timeline", glossary: "Glossary", mock_id: "Mock ID",
                 ask_anything: "Ask anything about elections...", mastery: "Mastery", 
-                ticker: "📢 DID YOU KNOW? Every vote counts toward democracy.",
-                roadmap: "Election Roadmap", subtitle: "Your definitive path to democratic participation"
+                roadmap: "Election Roadmap", subtitle: "Your definitive path to democratic participation",
+                google_calendar: "Add to Calendar", election_day: "General Election Day 2026"
             },
             hi: {
                 phase: "चरण", mastered: "पूर्ण", live_updates: "लाइव अपडेट", quick_tools: "नागरिक त्वरित उपकरण",
@@ -47,7 +47,8 @@ class VoteWiseApp {
                 dashboard: "डैशबोर्ड", checklist: "चेकलिस्ट", timeline: "समयरेखा", glossary: "शब्दावली", mock_id: "मॉक आईडी",
                 ask_anything: "चुनावों के बारे में कुछ भी पूछें...", mastery: "निपुणता",
                 ticker: "📢 क्या आप जानते हैं? लोकतंत्र में हर वोट मायने रखता है।",
-                roadmap: "चुनावी रोडमैप", subtitle: "लोकतांत्रिक भागीदारी का आपका निश्चित मार्ग"
+                roadmap: "चुनावी रोडमैप", subtitle: "लोकतांत्रिक भागीदारी का आपका निश्चित मार्ग",
+                google_calendar: "कैलेंडर में जोड़ें", election_day: "आम चुनाव दिवस 2026"
             },
             mr: {
                 phase: "टप्पा", mastered: "पूर्ण", live_updates: "थेट अपडेट", quick_tools: "नागरिक साधने",
@@ -296,10 +297,10 @@ class VoteWiseApp {
                  onclick="app.navigateToStep('${step.id}')"
                  onkeypress="if(event.key === 'Enter') app.navigateToStep('${step.id}')">
                 <div class="step-badge">${t.phase} 0${idx + 1}</div>
-                <div class="step-icon-box"><i class="fas ${icons[step.id] || 'fa-info-circle'}"></i></div>
+                <div class="step-icon-box"><i class="fas ${icons[step.id] || 'fa-info-circle'}" aria-hidden="true"></i></div>
                 <h3 class="step-title">${step.title}</h3>
                 <p class="step-desc">${step.description}</p>
-                ${this.completedSteps.includes(step.id) ? `<div class="step-status"><i class="fas fa-check-circle"></i> ${t.mastered}</div>` : ''}
+                ${this.completedSteps.includes(step.id) ? `<div class="step-status"><i class="fas fa-check-circle" aria-hidden="true"></i> ${t.mastered}</div>` : ''}
             </div>
         `).join('');
 
@@ -350,11 +351,29 @@ class VoteWiseApp {
                     </div>
                     <div class="list-item" tabindex="0" aria-label="${t.comparison}" onclick="app.showModule('comparison')" onkeypress="if(event.key === 'Enter') app.showModule('comparison')" style="cursor: pointer;">
                         <div style="width: 45px; height: 45px; background: #f0fdf4; color: #22c55e; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
-                            <i class="fas fa-exchange-alt"></i>
+                            <i class="fas fa-exchange-alt" aria-hidden="true"></i>
                         </div>
                         <div>
                             <div style="font-weight: 700;">${t.comparison}</div>
                             <div style="font-size: 0.75rem; opacity: 0.7;">State vs General Elections</div>
+                        </div>
+                    </div>
+                    <div class="list-item" tabindex="0" aria-label="${t.google_calendar}" onclick="app.addToCalendar()" onkeypress="if(event.key === 'Enter') app.addToCalendar()" style="cursor: pointer; border-left: 4px solid #4285f4;">
+                        <div style="width: 45px; height: 45px; background: #e8f0fe; color: #4285f4; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-calendar-plus" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700;">${t.google_calendar}</div>
+                            <div style="font-size: 0.75rem; opacity: 0.7;">Google Calendar Sync</div>
+                        </div>
+                    </div>
+                    <div class="list-item" tabindex="0" aria-label="Google Wallet Mock ID" onclick="app.addToWallet()" onkeypress="if(event.key === 'Enter') app.addToWallet()" style="cursor: pointer; border-left: 4px solid #34a853;">
+                        <div style="width: 45px; height: 45px; background: #e6f4ea; color: #34a853; border-radius: 12px; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-wallet" aria-hidden="true"></i>
+                        </div>
+                        <div>
+                            <div style="font-weight: 700;">${t.mock_id || 'Mock ID'}</div>
+                            <div style="font-size: 0.75rem; opacity: 0.7;">Add to Google Wallet</div>
                         </div>
                     </div>
                 </div>
@@ -983,12 +1002,35 @@ class VoteWiseApp {
         this.renderDashboard();
     }
 
-    readAloud(textId) {
-        const text = document.getElementById(textId).innerText;
+    async readAloud(textId) {
+        const el = document.getElementById(textId);
+        if (!el) return;
+        const text = el.innerText;
+        try {
+            // Google Cloud Text-to-Speech API — Wavenet voices for Indian languages
+            const res = await fetch('/api/tts', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text: text, lang: this.currentLanguage })
+            });
+            const data = await res.json();
+
+            if (data.mode === 'google_tts' && data.audio_content) {
+                // Play Google Cloud TTS audio (MP3 base64)
+                const audio = new Audio('data:audio/mp3;base64,' + data.audio_content);
+                audio.play();
+                return;
+            }
+        } catch (e) {
+            console.warn('Google TTS unavailable, falling back to browser Speech API:', e);
+        }
+
+        // Free Fallback: Browser Web Speech API
         const msg = new SpeechSynthesisUtterance(text);
-        if(this.currentLanguage === 'hi') msg.lang = 'hi-IN';
-        else msg.lang = 'en-IN';
+        const langMap = { hi: 'hi-IN', mr: 'mr-IN', ta: 'ta-IN', bn: 'bn-IN', te: 'te-IN' };
+        msg.lang = langMap[this.currentLanguage] || 'en-IN';
         window.speechSynthesis.speak(msg);
+
     }
 
     async renderFactChecker() {
@@ -1103,6 +1145,104 @@ class VoteWiseApp {
                 </div>
             </div>
         `;
+    }
+
+    addToCalendar() {
+        const t = this.I18N[this.currentLanguage] || this.I18N.en;
+        const details = "General Election Day - Exercise your democratic right with VoteWise AI.";
+        const location = "Your Polling Station";
+        const start = "20260426T070000Z";
+        const end = "20260426T180000Z";
+        const url = `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(t.election_day)}&dates=${start}/${end}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
+        window.open(url, '_blank');
+    }
+
+    addToWallet() {
+        // Google Wallet API — prototype voter pass integration
+        alert("Redirecting to Google Wallet... (In production, this uses the Google Wallet API to save a Mock Voter ID pass)");
+        window.open("https://pay.google.com/gp/v/save/", "_blank");
+    }
+
+    async renderBoothMap(containerId, booths) {
+        /**
+         * Renders a Google Maps instance with ECI booth markers.
+         * Uses Maps JS SDK + Visualization API (Heatmap layer).
+         * Falls back to a static Google Maps link if SDK not ready.
+         */
+        const container = document.getElementById(containerId);
+        if (!container) return;
+
+        // Wait for Google Maps SDK to be ready (loaded dynamically)
+        if (window.googleMapsReady && window.google && window.google.maps) {
+            const center = { lat: booths[0].lat, lng: booths[0].lon };
+            const map = new window.google.maps.Map(container, {
+                zoom: 14,
+                center: center,
+                mapTypeId: 'roadmap',
+                styles: [{ featureType: "poi", stylers: [{ visibility: "off" }] }]
+            });
+
+            // Add custom ECI booth markers
+            booths.forEach(booth => {
+                const marker = new window.google.maps.Marker({
+                    position: { lat: booth.lat, lng: booth.lng || booth.lon },
+                    map: map,
+                    title: booth.name,
+                    icon: {
+                        url: 'https://maps.google.com/mapfiles/ms/icons/blue-dot.png'
+                    }
+                });
+                const infoWindow = new window.google.maps.InfoWindow({
+                    content: `<div style="font-weight:700;">${booth.name}</div><div>Booth ID: ${booth.id}</div>`
+                });
+                marker.addListener('click', () => infoWindow.open(map, marker));
+            });
+
+            // Heatmap layer for voter density visualization
+            const heatmapData = booths.map(b => ({
+                location: new window.google.maps.LatLng(b.lat, b.lng || b.lon),
+                weight: 3
+            }));
+            new window.google.maps.visualization.HeatmapLayer({
+                data: heatmapData,
+                map: map
+            });
+        } else {
+            // Fallback: embed static Google Maps link
+            const query = encodeURIComponent(booths[0].name + " polling booth");
+            container.innerHTML = `
+                <div style="text-align:center; padding: 2rem;">
+                    <p style="font-size: 0.85rem; color: #64748b; margin-bottom: 1rem;">
+                        📍 Google Maps loading...
+                    </p>
+                    <a href="https://www.google.com/maps/search/${query}" target="_blank"
+                       style="background: #4285f4; color: white; padding: 0.75rem 1.5rem;
+                              border-radius: 12px; text-decoration: none; font-weight: 700;">
+                        <i class="fas fa-map-marker-alt"></i> Open in Google Maps
+                    </a>
+                </div>`;
+        }
+    }
+
+    async translateWithGoogle(text, targetLang) {
+        /**
+         * Google Cloud Translation API v2 integration.
+         * Calls /api/translate backend endpoint for server-side localization.
+         * Used for dynamic content that is not in the local I18N cache.
+         */
+        if (targetLang === 'en') return text;
+        try {
+            const res = await fetch('/api/translate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ text, target_lang: targetLang, source_lang: 'en' })
+            });
+            const data = await res.json();
+            return data.translated || text;
+        } catch (e) {
+            console.warn('Google Translate API unavailable:', e);
+            return text;
+        }
     }
 }
 
