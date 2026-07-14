@@ -60,7 +60,7 @@
             .then(res => res.json())
             .then(user => {
                 sessionStorage.setItem('user', JSON.stringify(user));
-                window.location.href = '/';
+                window.location.href = '/dashboard';
             })
             .catch(err => alert("Google Login failed."));
         }
@@ -83,7 +83,7 @@
                     authMode: 'sandbox'
                 };
                 sessionStorage.setItem('user', JSON.stringify(user));
-                window.location.href = '/';
+                window.location.href = '/dashboard';
             } else {
                 alert("Please enter a valid 4-digit OTP");
             }

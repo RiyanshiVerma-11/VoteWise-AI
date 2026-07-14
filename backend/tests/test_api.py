@@ -94,7 +94,35 @@ def test_missing_language_param():
     assert response.status_code in [200, 422]
 
 def test_cors_headers_present():
-    # Checking if CORS headers are injected
     response = client.options("/api/steps?lang=en", headers={"Origin": "http://localhost", "Access-Control-Request-Method": "GET"})
     assert "access-control-allow-origin" in response.headers or response.status_code in [200, 204]
+
+
+def test_web_routes():
+    # Test Root serves Landing Page
+    response = client.get("/")
+    assert response.status_code == 200
+    assert "landing.css" in response.text
+    assert "VoteWise AI" in response.text
+
+    # Test Dashboard page
+    response = client.get("/dashboard")
+    assert response.status_code == 200
+    assert "votewise_v2.css" in response.text
+
+    # Test Login page
+    response = client.get("/login.html")
+    assert response.status_code == 200
+    assert "login-bg" in response.text
+
+    # Test Index page (legacy dashboard route)
+    response = client.get("/index.html")
+    assert response.status_code == 200
+    assert "votewise_v2.css" in response.text
+
+    # Test Dashboard V2 explicit route
+    response = client.get("/dashboard_v2.html")
+    assert response.status_code == 200
+    assert "votewise_v2.css" in response.text
+
 

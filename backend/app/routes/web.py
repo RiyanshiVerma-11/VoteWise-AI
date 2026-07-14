@@ -15,7 +15,13 @@ templates = Jinja2Templates(directory=TEMPLATES_DIR)
 
 @router.get("/", response_class=HTMLResponse)
 async def read_root(request: Request) -> HTMLResponse:
-    """Serve the main VoteWise AI dashboard."""
+    """Serve the main VoteWise AI landing page."""
+    return templates.TemplateResponse(request=request, name="landing.html")
+
+
+@router.get("/dashboard", response_class=HTMLResponse)
+async def read_dashboard(request: Request) -> HTMLResponse:
+    """Serve the main interactive VoteWise AI dashboard."""
     return templates.TemplateResponse(request=request, name="dashboard_v2.html")
 
 
